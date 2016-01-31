@@ -94,7 +94,7 @@
         tagsList += ''
           + '<li>'
             + '<a href="/search.html?tags=' + tags[j] + '">' + tags[j] + '</a>'
-          + '</li>';
+          + '</li> ';
       }
       tagsList += '</ul>';
 
