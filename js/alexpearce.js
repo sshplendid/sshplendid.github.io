@@ -93,14 +93,14 @@
       for (var j in tags) {
         tagsList += ''
           + '<li>'
-            + '<a href="/search.html?tags=' + tags[j] + '">' + tags[j] + '</a>'
+            + '<a href="/search/?tags=' + tags[j] + '">' + tags[j] + '</a>'
           + '</li> ';
       }
       tagsList += '</ul>';
 
       for (var j in categories) {
         if(categories[j] != null)
-        categoryList += '<a href="/search.html?category=' + categories[j] + '">' + categories[j] + '</a> ';
+        categoryList += '<a href="/search/?category=' + categories[j] + '">' + categories[j] + '</a> ';
       }
       
 
@@ -153,7 +153,7 @@
       // Replace <% %> with {% %}
       txt = txt.replace(new RegExp('&lt;%(.+?)%&gt;', 'g'), '{%$1%}');
 
-      $this.html(txt);
+      $this/(txt);
     });
   };
 

@@ -17,3 +17,6 @@ github_username:  sshplendid
 
 # Build settings
 markdown: kramdown
+
+# permalink
+permalink: pretty
