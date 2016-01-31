@@ -20,3 +20,6 @@ markdown: kramdown
 
 # permalink
 permalink: pretty
+
+gems: [jekyll-paginate]
+paginate: 5

@@ -1,0 +1,12 @@
+/*
+	_ssh-custom.scss
+*/
+.inline li {
+	display:inline;
+}
+
+a.page-link:hover {
+	color: green;
+	text-decoration: none;
+	border-bottom: solid 3px gray;
+}
