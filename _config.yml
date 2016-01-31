@@ -6,13 +6,13 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Code distillery
-email: jumtingi@gmail.com
+title: Code Distillery
+email: sshplendid@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  code with drink
+  Coding with drinking whatever!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://sshplendid.github.io" # the base hostname & protocol for your site
-twitter_username: ssh_bit
+twitter_username: sshplendid
 github_username:  sshplendid
 
 # Build settings
