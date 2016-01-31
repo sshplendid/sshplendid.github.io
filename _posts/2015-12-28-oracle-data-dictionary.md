@@ -2,7 +2,8 @@
 layout: post
 title:  "Oracle 데이터 사전(Data dictionary)"
 date:   2015-12-28 22:19:46 +0900
-categories: oracle
+categories: [blog, oracle]
+tags: [oracle, datadictionary, db]
 ---
 *이 글은 오라클(11.1) 기술문서-[Oracle 11g Documentation : Data Dictionary](http://docs.oracle.com/cd/B28359_01/server.111/b28318/datadict.htm)를 번역한 글입니다.*
 
