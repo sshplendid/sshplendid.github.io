@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "깃허브 페이지 개설"
-date:   2016-02-01 00:53:00 +0900
+date:   2016-02-01 00:53:00
 categories: [blog, jekyll]
 tags: [github, pages, jekyll, 삽질]
 ---
