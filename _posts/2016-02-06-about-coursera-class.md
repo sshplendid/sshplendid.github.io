@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "교육의 현재이자 미래, Coursera에서 학습하기"
-date:   2016-02-06 23:23:00
+date:   2016-02-06 23:23:00 0000
 categories: [blog, life]
 tags: [coursera, mooc, datascience]
 ---
