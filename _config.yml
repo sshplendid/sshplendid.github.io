@@ -25,3 +25,6 @@ permalink: pretty
 
 gems: [jekyll-paginate]
 paginate: 5
+
+timezone: Asia/Seoul
+future: BOOL
