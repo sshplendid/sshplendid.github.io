@@ -7,7 +7,7 @@ tags: [oracle, datadictionary, db]
 ---
 *이 글은 오라클(11.1) 기술문서-[Oracle 11g Documentation : Data Dictionary](http://docs.oracle.com/cd/B28359_01/server.111/b28318/datadict.htm)를 번역한 글입니다.*
 
-#데이터 사전(Data Dictionary)
+# 데이터 사전(Data Dictionary)
 
 1. 데이터 사전에 대한 소개
 2. 어떻게 이용되는가
