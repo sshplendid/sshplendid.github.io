@@ -1,18 +1,22 @@
 /*
 	_ssh-custom.scss
 */
+
+
 .inline, .inline li{
 	display:inline;
 }
 
-a, a:hover {
-	color: black;
+a, a:hover, a:visited {
 	text-decoration: none;
 }
 
-a.page-link:hover {
+a:hover {
 	color: green;
-	text-decoration: none;
+}
+
+
+a.page-link:hover {
 	border-bottom: solid 3px gray;
 }
 
@@ -32,7 +36,8 @@ dd {
 	margin-top: -20px;
 	text-align: right;
 }
-
+/*
 a, span {
 	display: inline-block;
 }
+*/

@@ -1,5 +1,18 @@
 (function() {
 
+function getParams() {
+  var queryString = window.location.search.substring(1);
+  var list = queryString.split("&");
+  var map = [];
+  for(i in list) {
+    var obj = {};
+    obj.key = list[i].split("=")[0];
+    obj.value = list[i].split("=")[1];
+    map.push(obj);
+  }
+
+  return map;
+}
 function getMetaData() {
   $.getJSON('/search.json', function(data) {
     var type,value;
