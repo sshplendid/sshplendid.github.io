@@ -14,9 +14,8 @@ layout: default
 
   <!-- Tags -->
   <ul class="post-tags inline">
-  	<span>Tags </span>
     {% for tag in page.tags %}
-    <li><a href="/search/?tags={{ tag }}">{{ tag | downcase }}</a></li>
+    <li><a href="/search/?tags={{ tag }}">&#35;{{ tag | downcase }}</a></li>
     {% endfor %}
   </ul>
 {% include disqus.html %}

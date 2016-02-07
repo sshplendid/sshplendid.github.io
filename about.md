@@ -3,30 +3,11 @@ layout: page
 title: About
 permalink: /about/
 ---
+<img src="/images/me.png" style="width:100%; max-width:400px" />
 
-<div class="wrapper">
+#### Developer or Drinker
 
-	<h2 class="footer-heading">{{ site.title }}</h2>
-	<div>
-		<p>
-			Coding with drinking whatever!<br />
-			술 마시는 것을 좋아하고 가끔 개발도 합니다.<br />
-			Suwon to Seoul<br /></p>
-	</div>
-	<div class="footer-col-wrapper">
-		<ul class="social-media-list">
-			<li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-			{% if site.github_username %}
-			<li>
-				{% include icon-github.html username=site.github_username %}
-			</li>
-			{% endif %}
+자주 술을 마시고 가끔 개발도 합니다.
 
-			{% if site.twitter_username %}
-			<li>
-				{% include icon-twitter.html username=site.twitter_username %}
-			</li>
-			{% endif %}
-		</ul>
-	</div>
-</div>
+
+[트위터](http://twitter.com/sshplendid) 혹은 [메일](mailto:sshplendid.gmail.com)로 연락주세요.

@@ -1,19 +1,11 @@
 <footer class="site-footer">
 
   <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
     <div>
-      <div class="footer-col footer-col-1">
-        <ul>
-          <li>Open at 17:30</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
-
       <div class="footer-col footer-col-2">
         <ul class="social-media-list">
+          <li>Open at 17:30</li>
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
           {% if site.github_username %}
           <li>
             {% include icon-github.html username=site.github_username %}

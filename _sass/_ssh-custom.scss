@@ -19,11 +19,11 @@ a:hover {
 a.page-link:hover {
 	border-bottom: solid 3px gray;
 }
-
+/*
 li {
 	list-style-type: none;
 }
-
+*/
 .align-center {
 	text-align:center;
 }
@@ -46,7 +46,12 @@ a, span {
 	background-color:#3c9d47;
 	border-radius:5px;
 	padding:1px 5px 1px 3px;
+	list-style-type: none;
 }
 .post-tags li a {
 	color:#f3fabb;
+}
+
+.posts {
+	width:100%;
 }
