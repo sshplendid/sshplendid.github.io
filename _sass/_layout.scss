@@ -240,3 +240,30 @@
         }
     }
 }
+
+
+/* 메인 페이지 포스트 리스트 */
+.post-list {
+    .posts {
+        width: 100%;
+        .postDate {
+            min-width: 100px;
+            text-align: right;
+            font-style: italic;
+            font-size: 90%;
+        }
+
+    }
+
+    
+    @include media-query($on-palm) {
+        
+
+        .postName {
+            max-width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }        
+    }
+}
