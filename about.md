@@ -3,7 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-<img src="/images/me.png" style="width:100%; max-width:400px" />
+<img src="/images/about/me.png" style="width:100%; max-width:400px" />
 
 #### Developer or Drinker
 
