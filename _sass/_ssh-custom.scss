@@ -4,20 +4,22 @@
 
 
 .inline, .inline li{
-	display:inline;
+	display: inline;
 }
 
 a, a:hover, a:visited {
 	text-decoration: none;
+	color: #3c9d47;
 }
 
-a:hover {
-	color: green;
+.posts .postName:hover, .posts .postName:hover a {
+	background-color: #3c9d47;
+	color: #f3fabb;
 }
 
 
 a.page-link:hover {
-	border-bottom: solid 3px gray;
+	border-bottom: solid 3px #3c9d47;
 }
 /*
 li {
@@ -25,29 +27,25 @@ li {
 }
 */
 .align-center {
-	text-align:center;
+	text-align: center;
 }
 
-dt {
-	font-size: larger;
-}
-
-dd {
-	margin-top: -20px;
-	text-align: right;
-}
-/*
-a, span {
-	display: inline-block;
-}
-*/
 
 .post-tags li {
-	background-color:#3c9d47;
-	border-radius:5px;
-	padding:1px 5px 1px 3px;
+	background-color: #3c9d47;
+	border-radius: 5px;
+	padding: 1px 5px 1px 3px;
 	list-style-type: none;
 }
 .post-tags li a {
-	color:#f3fabb;
+	color: #f3fabb;
 }
+
+.pc-category {
+	font-style: italic;
+}
+@include media-query($on-palm) {
+	.pc-category {
+		display: none;		
+	}
+}	

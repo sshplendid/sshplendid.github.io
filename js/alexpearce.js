@@ -84,7 +84,7 @@
     $results = $container.find('ul.results');
     for (var i in posts) {
       // Create an unordered list of the post's tags
-      var tagsList = '<ul class="tags inline">',
+      var tagsList = '<ul class="tags inline post-tags">',
           categoryList = "";
           post     = posts[i],
           tags     = post.tags,
@@ -114,7 +114,7 @@
             // Post date
             + '<h2>'
               + post.date.formatted
-              + ' in categoryList '
+              + ' in category list '
               + categoryList
             + '</h2>'
             // Tags

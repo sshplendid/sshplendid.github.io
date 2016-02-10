@@ -30,18 +30,48 @@ function getMetaData() {
 
 function layoutResultsPage(type, value, posts) {
   var main = $("section.archives");
-  var html = "<dl class='posts'>";
+  var html = "<table class='posts'>";
   for(i in posts) {
     if(posts[i] != null){
-      html += "<dt>";
+
+      /*
+      html += "<tr>";
+      html += "<td colspan=2>";
+      for(j in posts[i].category) { 
+        if(posts[i].category[j] != null) { 
+          html += "<span>";
+          html += posts[i].category[j].toUpperCase();
+          html += "</span>";
+          html += " > ";
+        }
+      }
+      html += "</td>";
+      html += "</tr>";
+      */
+
+      html += "<tr>";
+      html += "<td class='postName'>";
+
+      html += "<span class='pc-category'>";
+      for(j in posts[i].category) { 
+        if(posts[i].category[j] != null) { 
+          html += "<span>";
+          html += posts[i].category[j].toUpperCase().substring(0,1) + posts[i].category[j].toLowerCase().substring(1);
+          html += "</span>";
+          html += " > ";
+        }
+      }
+      html += "</span>";
+
       html += "<a href='"+posts[i].href+"'>"+posts[i].title+"</a>";
-      html += "</dt> ";
-      html += "<dd>";
+      html += "</td> ";
+      html += "<td class='postDate'>";
       html += "<span class='date'>"+posts[i].date.formatted+"</span>";
-      html += "</dd>";
+      html += "</td>";
+      html += "</tr>";
     }
   }
-  html += "</dl>";
+  html += "</table>";
   main.append(html);
 }
 
