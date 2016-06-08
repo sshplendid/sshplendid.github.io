@@ -6,11 +6,10 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Code Distillery
+title: I know nothing.
 email: sshplendid@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Coding with drinking whatever!<br/>
-  술 마시는 것을 좋아하고 가끔 개발도 합니다.<br/>
+  난 모릅니다.
   Suwon to Seoul<br/>
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://sshplendid.github.io" # the base hostname & protocol for your site
