@@ -6,7 +6,7 @@ categories: [blog, life, travel]
 tags: [pivo, beer, prague, chech, plzen, pilsner]
 ---
 
-#브루어리 방문기 - Plzeňský Prazdroj
+# 브루어리 방문기 - Plzeňský Prazdroj
 
 ***이 글은 2015년 9월 경 플젠 브루어리를 방문했던 기억을 더듬어 작성한 글입니다. 꽤 시간이 지난 후라 현재와 다른 정보가 존재할 수 있습니다.**
 
