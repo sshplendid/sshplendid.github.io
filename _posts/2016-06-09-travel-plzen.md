@@ -1,12 +1,11 @@
 ---
 layout: post
-title:  "브루어리 방문기 - Plzeňský Prazdroj"
+title:  "브루어리 방문기: Plzeňský Prazdroj"
 date:   2016-06-09 01:29:00 +0900
 categories: [blog, life, travel]
 tags: [pivo, beer, prague, chech, plzen, pilsner]
 ---
 
-# 브루어리 방문기 - Plzeňský Prazdroj
 
 ***이 글은 2015년 9월경 플젠 브루어리를 방문했던 기억을 더듬어 작성한 글입니다. 꽤 시간이 지난 후라 현재와 다른 정보가 존재할 수 있습니다.**
 
@@ -30,7 +29,7 @@ tags: [pivo, beer, prague, chech, plzen, pilsner]
 ![.]({{site.baseurl}}/images/posts/2016-06-09-travel-plzen/04_brewery_front.jpg)
 *가까이서 보면 더 멋지다. 문 위에 적혀있는 로마자는 아래 있는 연도와 의미가 같다.*
 
-브루어리의 아크 게이트는 1892년이 지었다. 1842 - 1892의 의미는 첫 필스너 배치가 생산된 1842년 10월 5일 이후 50주년을 기록한 것이라고 한다.
+브루어리의 아치 게이트는 1892년이 지었다. 1842 - 1892의 의미는 첫 필스너 배치가 생산된 1842년 10월 5일 이후 50주년을 기록한 것이라고 한다.
 
 ![.]({{site.baseurl}}/images/posts/2016-06-09-travel-plzen/05.jpg)
 
