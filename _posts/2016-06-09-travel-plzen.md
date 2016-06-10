@@ -13,7 +13,14 @@ tags: [pivo, beer, prague, chech, plzen, pilsner]
 
 아, 가기 전에 양조장 투어 예약을 알아봤다. 따로 예약했는진 기억이 안 나는데, 영어를 제공하는 투어 시간을 미리 [양조장 투어 웹사이트](http://www.prazdrojvisit.cz/en/tours/)에서 확인하고 가자. 투어비용은 200 코루나, 약 만 원 정도 되는 것 같다.
 
+
+![.]({{site.baseurl}}/images/posts/2016-06-09-travel-plzen/00.jpg)
+*프라하 흘라브니 나드리치. 흘라브니 나드리치는 중앙역정도로 풀이될 수 있다.*
+
 플젠 양조장은 체코 프라하의 서쪽 도시 플젠에 있다. 프라하 중앙역에서 약 1~2시간 정도(기억이 안남) 기차를 타고 갔다. 기차역(Plzen hlavni nadrazi)에서 걸어서 약 10분 정도 걸린다고 구글맵에서 나온다. 내 기억엔 역에서 양조장까지 가는 중간에 육교가 있었는데 육교로 진입하는 길이 건물의 복도(?)와 연결되어있어서 헷갈렸다. 
+
+![.]({{site.baseurl}}/images/posts/2016-06-09-travel-plzen/map.png)
+*중간에 육교를 지나야 한다.*
 
 ![.]({{site.baseurl}}/images/posts/2016-06-09-travel-plzen/01_station.jpg)
 *어서 와, 플젠은 처음이지?*
