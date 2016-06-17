@@ -3,7 +3,7 @@ layout: post
 title:  "브루어리 방문기: Plzeňský Prazdroj"
 date:   2016-06-09 01:29:00 +0900
 categories: [blog, life, travel]
-tags: [pivo, beer, prague, chech, plzen, pilsner]
+tags: [pivo, beer, prague, czech, plzen, pilsner]
 ---
 
 
