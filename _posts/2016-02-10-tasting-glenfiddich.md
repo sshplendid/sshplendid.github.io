@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "위스키 테이스팅 - Glenfiddich 12 year old"
+title: "위스키 테이스팅: Glenfiddich 12 year old"
 date: 2016-02-10 22:00:00 +0900
 categories: [blog, tasting, whisky]
 tags: [whisky, glenfiddich, 글렌피딕, 위스키]
