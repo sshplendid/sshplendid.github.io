@@ -8,9 +8,9 @@ tags: [javascript, 번역, Douglas Crockford]
 원문: [JavaScript:The World's Most Misunderstood Programming Language](http://javascript.crockford.com/javascript.html)
 
 <center><a href="mailto:douglas@crockford.com">Douglas Crockford</a></center>
-
+<br /><br />
 <center>www.crockford.com</center>    
-
+<br /><br /><br />
 
   
 Mocha, LiveScript, JScript, ECMAScript로 알려진 **[JavaScript](http://javascript.crockford.com/)**(이하 JS)는 지구상에서 가장 유명한 언어 중 하나이다. 사실상 세계의 모든 PC엔 적어도 하나 이상의 JavaScript 인터프리터가 설치되어있고 사용되고 있을 것이다. JS의 유명세는 전적으로 'WWW'의 스크립트 언어라는 역할에서 기인한다.
