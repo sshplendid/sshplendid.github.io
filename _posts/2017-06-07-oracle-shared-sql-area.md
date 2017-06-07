@@ -25,7 +25,8 @@ tags: [database, oracle, sga, shared pool, shared sql area]
  오라클의 기본 메모리 구조는 다음과 같다.
    - System Global Area(SGA): 모든 서버와 백그라운드 프로세스에서 공유되는 메모리
    - Program Global Area(PGA): 각 서버와 백그라운드 프로세스에서 각자 사용하는 메모리, 한 프로세스에 하나의 PGA가 존재한다.
- ![오라클 메모리 구조](http://docs.oracle.com/cd/B19306_01/server.102/b14220/img/cncpt151.gif "오라클 메모리 구조")
+   
+![오라클 메모리 구조](http://docs.oracle.com/cd/B19306_01/server.102/b14220/img/cncpt151.gif "오라클 메모리 구조")
 
 ## System Global Area 개요
 **System Global Area, SGA**는 하나의 오라클 데이터베이스 인스턴스에의 데이터와 제어정보를 포함한 공유 메모리 구조의 모음이다. 만약 다수의 사용자가 동시에 하나의 인스턴스에 접속한다면, 사용자들은 SGA 메모리를 공유하게 된다. 결과적으로 SGA는 때때로 **Shared Global Area**라고 불리기도 한다.
@@ -48,9 +49,6 @@ SGA 파트는 백그라운드 프로세스에 접근해야 하는 인스턴스�
 
 만약 시스템이 공유 서버 구조(shared server architecture)를 사용한다면, 요청/응답 큐(queue)와 PGA의 몇몇 정보가 SGA 안에 포함될 것이다.
 
-
-http://docs.oracle.com/cd/B19306_01/server.102/b14220/memory.htm
-
 ### Shared pool
 SGA의 Shared pool은 `library cache`, `dictionary cache`, 병렬 처리 메시지를 위한 버퍼, 제어구조를 포함한다.
 
@@ -64,11 +62,12 @@ Shared SQL areas는 모든 사용자가 접근 가능하다. 그러므로 librar
 
 ###### Shared SQL Areas
 Shared SQL Area는 주어진 SQL 문장에 대한 실행계획과 parse tree를 포함한다. 오라클은 (다수의 사용자가 동일한 SQL을 실행할 때 종종 나타나는) SQL 문장들을 위한 유일한 shared SQL area를 사용함으로써 메모리 사용량을 절감한다. 
-> * Parse tree: SQL 언어의 문법에 기반한 해석 결과물이다. 이 것은 트리구조로 저장되어 있다. 오라클 데이터베이스에서 SQL 문장을 해석해서 생성한 컴파일 코드를 Parse tree라고 부른다. (p.code, parse code 등으로도 불림)
+
+> Parse tree: SQL 언어의 문법에 기반한 해석 결과물이다. 이 것은 트리구조로 저장되어 있다. 오라클 데이터베이스에서 SQL 문장을 해석해서 생성한 컴파일 코드를 Parse tree라고 부른다. (p.code, parse code 등으로도 불림)
 
 오라클은 새로운 SQL 문장이 해석될 때, shared pool에서 메모리를 할당해 shared SQL area에 저장한다. 이 메모리의 크기는 SQL문장의 복잡도에 따라 다르다. 만약 shared pool이 전부 할당된 경우, 오라클은 새로운 SQL문장을 위한 충분한 공간이 마련될 때까지 수정된 LRU(modified Least Recently Used) 알고리듬을 사용하여 풀 안의 아이템(SQL 정보) 메모리를 반환한다. 만약 오라클이 shared SQL area를 반환한다면, 관련된 SQL 문장은 다음 실행 시, 재해석(reparse) / 새로운 shared SQL area에 재할당(reassign)되는 과정이 이루어져야 한다.
 
 
 
-아래 오라클 문서 중 shared SQL area와 관련된 부분을 번역해보았다.
+아래 오라클 문서 중 shared SQL area와 관련된 부분을 번역해보았다.    
 [Oracle Memory Architecture](http://docs.oracle.com/cd/B19306_01/server.102/b14220/memory.htm#i14490)
