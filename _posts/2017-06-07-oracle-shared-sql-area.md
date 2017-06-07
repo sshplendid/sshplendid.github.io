@@ -27,7 +27,7 @@ tags: [database, oracle, sga, shared pool, shared sql area]
    - Program Global Area(PGA): 각 서버와 백그라운드 프로세스에서 각자 사용하는 메모리, 한 프로세스에 하나의 PGA가 존재한다.
  ![오라클 메모리 구조](http://docs.oracle.com/cd/B19306_01/server.102/b14220/img/cncpt151.gif "오라클 메모리 구조")
 
-##System Global Area 개요
+## System Global Area 개요
 **System Global Area, SGA**는 하나의 오라클 데이터베이스 인스턴스에의 데이터와 제어정보를 포함한 공유 메모리 구조의 모음이다. 만약 다수의 사용자가 동시에 하나의 인스턴스에 접속한다면, 사용자들은 SGA 메모리를 공유하게 된다. 결과적으로 SGA는 때때로 **Shared Global Area**라고 불리기도 한다.
 
 SGA와 프로세스는 (오라클) 인스턴스를 구성한다. 오라클은 인스턴스를 구동할 때, 자동적으로 메모리를 SGA에 할당한다. 그리고 운영체제는 인스턴스가 멈출 때 메모리를 되찾는다. 각 인스턴스는 고유의 SGA 영역을 가지고 있다.
@@ -51,18 +51,18 @@ SGA 파트는 백그라운드 프로세스에 접근해야 하는 인스턴스�
 
 http://docs.oracle.com/cd/B19306_01/server.102/b14220/memory.htm
 
-###Shared pool
+### Shared pool
 SGA의 Shared pool은 `library cache`, `dictionary cache`, 병렬 처리 메시지를 위한 버퍼, 제어구조를 포함한다.
 
-####Library Cache
+#### Library Cache
 Library Cache는 Shared `SQL areas`와 `private SQL Areas` (Shared Server구조일 때만), PL/SQL 프로시져와 패키지, Lock과 같은 제어구조, 그리고 라이브러리 캐시 핸들을 포함한다.
 
 Shared SQL areas는 모든 사용자가 접근 가능하다. 그러므로 library cache는 SGA 내부의 shared pool에 존재한다.
 
-#####Shared SQL Areas와 Private SQL Areas
+##### Shared SQL Areas와 Private SQL Areas
 오라클은 Shared SQL Area와 Private SQL area에서 일치하는 SQL 문장을 보여준다. 오라클은 두 사용자가 동일한 SQL 문장을 실행하는 것을 인식하고 Shared SQL Area를 재사용한다.
 
-######Shared SQL Areas
+###### Shared SQL Areas
 Shared SQL Area는 주어진 SQL 문장에 대한 실행계획과 parse tree를 포함한다. 오라클은 (다수의 사용자가 동일한 SQL을 실행할 때 종종 나타나는) SQL 문장들을 위한 유일한 shared SQL area를 사용함으로써 메모리 사용량을 절감한다. 
 > * Parse tree: SQL 언어의 문법에 기반한 해석 결과물이다. 이 것은 트리구조로 저장되어 있다. 오라클 데이터베이스에서 SQL 문장을 해석해서 생성한 컴파일 코드를 Parse tree라고 부른다. (p.code, parse code 등으로도 불림)
 
@@ -70,5 +70,5 @@ Shared SQL Area는 주어진 SQL 문장에 대한 실행계획과 parse tree를 
 
 
 
-
+아래 오라클 문서 중 shared SQL area와 관련된 부분을 번역해보았다.
 [Oracle Memory Architecture](http://docs.oracle.com/cd/B19306_01/server.102/b14220/memory.htm#i14490)
