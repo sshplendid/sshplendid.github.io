@@ -11,7 +11,7 @@ email: sshplendid@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   난 모릅니다.
   Suwon to Seoul<br/>
-baseurl: "blog" # the subpath of your site, e.g. /blog
+baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "http://sshplendid.github.io" # the base hostname & protocol for your site
 twitter_username: sshplendid
 github_username:  sshplendid
