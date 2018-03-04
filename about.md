@@ -7,6 +7,4 @@ permalink: /about/
 
 작심삼일
 
-
-[트위터](http://twitter.com/sshplendid)   
 [메일](mailto:sshplendid.gmail.com)
