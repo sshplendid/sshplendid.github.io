@@ -2,7 +2,7 @@
 layout: post
 title:  "JavaScript - Promise 알아보기"
 date:   2018-03-05 00:00:00 +0900
-categories: [blog, dev, javascript]
+categories: [blog, dev, js]
 tags: [promise, javascript, nodejs]
 ---
 # Promise
