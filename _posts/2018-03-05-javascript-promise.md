@@ -182,7 +182,7 @@ promise.then(console.log, console.error);
 
 셔츠와 바지는 all API로 처리하고 자켓은 then API로 처리한다.
 
-[Promise - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-[빠르게 훝어 보는 node.js - promise를 이용한 node.js에서 콜백헬의 처리](http://bcho.tistory.com/1086)
-[Promise Patterns & Anti-Patterns](https://medium.com/witinweb/%EB%B2%88%EC%97%AD-promise-patterns-anti-patterns-4065d8c26e89)
-[자바스크립트 Promise 쉽게 이해하기](https://joshua1988.github.io/web-development/javascript/promise-for-beginners/)
+[Promise - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)  
+[빠르게 훝어 보는 node.js - promise를 이용한 node.js에서 콜백헬의 처리](http://bcho.tistory.com/1086)  
+[Promise Patterns & Anti-Patterns](https://medium.com/witinweb/%EB%B2%88%EC%97%AD-promise-patterns-anti-patterns-4065d8c26e89)  
+[자바스크립트 Promise 쉽게 이해하기](https://joshua1988.github.io/web-development/javascript/promise-for-beginners/)  
