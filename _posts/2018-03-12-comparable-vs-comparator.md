@@ -2,7 +2,7 @@
 layout: post
 title:  "Comparable VS Comparator"
 date:   2018-03-12 00:00:00 +0900
-categories: [blog, java]
+categories: [blog, dev, java]
 tags: [java, comparable, comparator]
 ---
 # Comparable VS Comparator
