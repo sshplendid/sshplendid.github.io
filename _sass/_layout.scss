@@ -247,16 +247,16 @@ section {
     .posts {
         width: 100%;
         .postDate {
-            width: 80px;
+            width: 100px;
             text-align: right;
             font-style: italic;
-            
+
         }
 
     }
-    
+
     @include media-query($on-palm) {
-        
+
         .postDate {
             font-size: 80%;
         }
@@ -265,6 +265,6 @@ section {
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-        }        
+        }
     }
 }
