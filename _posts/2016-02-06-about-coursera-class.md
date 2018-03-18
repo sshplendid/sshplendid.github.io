@@ -2,10 +2,10 @@
 layout: post
 title:  "교육의 현재이자 미래, Coursera에서 학습하기"
 date:   2016-02-06 23:23:00 +0900
-categories: [blog, life]
+categories: [blog, life, log]
 tags: [coursera, mooc, datascience]
 ---
-2016년 목표 중 하나가 데이터 사이언스에 대해서 공부하는 것이다. 통계와 데이터 마이닝 수업을 재미있게 듣기도 했고, 현재도 그렇지만 이 분야는 매우 뜨거운 분야 중 하나이기 때문이다. 배움에는 여러가지 방식이 있다. 
+2016년 목표 중 하나가 데이터 사이언스에 대해서 공부하는 것이다. 통계와 데이터 마이닝 수업을 재미있게 듣기도 했고, 현재도 그렇지만 이 분야는 매우 뜨거운 분야 중 하나이기 때문이다. 배움에는 여러가지 방식이 있다.
 
 - 학교나 학원에서 수업 듣기
 - 그룹 스터디
@@ -28,7 +28,7 @@ MOOC에 대한 뉴스를 접하고 바로 [코세라][coursera]에 가입해서 
 
 ### Financial aid is available
 
-위 이미지에도 나오지만 수업을 듣기위해선 수강료가 필요하다. 각 수업, 코스마다 수강료는 차이가 있다. 돈이 없어도 수업을 들을 수 있지만 인증서는 발급해주지 않는다. 하지만 [경제적 여유가 없는 사람을 위해 Financial-Aid라는 이름으로 지원][financial-aid]을 하고있다. 
+위 이미지에도 나오지만 수업을 듣기위해선 수강료가 필요하다. 각 수업, 코스마다 수강료는 차이가 있다. 돈이 없어도 수업을 들을 수 있지만 인증서는 발급해주지 않는다. 하지만 [경제적 여유가 없는 사람을 위해 Financial-Aid라는 이름으로 지원][financial-aid]을 하고있다.
 
 > Financial Aid was designed specifically for those who face significant economic hardships, so that these individuals with genuine needs may be given the chance to earn a Course Certificate at no cost.  
 If you would like to earn a Course Certificate but cannot afford it, please apply now. We want you to get a high quality education, earn a Course Certificate, and share your success with others.  
@@ -43,7 +43,7 @@ If you would like to earn a Course Certificate but cannot afford it, please appl
 
 ![각 영상은 보통 15분을 넘지 않는다.]({{site.baseurl}}/images/posts/2016-02-06-about-coursera-class_lessons.png)
 
-강의계획서도 존재한다. 
+강의계획서도 존재한다.
 
 ### 11,432명의 수강인원
 

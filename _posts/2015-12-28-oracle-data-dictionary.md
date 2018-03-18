@@ -2,7 +2,7 @@
 layout: post
 title:  "Oracle 데이터 사전(Data dictionary)"
 date:   2015-12-28 22:19:46 +0900
-categories: [blog, oracle]
+categories: [blog, dev, oracle]
 tags: [oracle, datadictionary, db]
 ---
 *이 글은 오라클(11.1) 기술문서-[Oracle 11g Documentation : Data Dictionary](http://docs.oracle.com/cd/B28359_01/server.111/b28318/datadict.htm)를 번역한 글입니다.*
@@ -90,7 +90,7 @@ Base table의 데이터는 데이터베이스가 동작하기 위해서 필요�
 - 몇몇 DBA 뷰는 관리자에게 유용한 정보를 제공하는 컬럼이 추가된다.
 
 #### 2.2.1. 'USER' 접두사의 뷰
-'USER' 접두사의 뷰SMS 일반적으로 데이터베이스 사용자에게 흥미로울 것이다. 
+'USER' 접두사의 뷰SMS 일반적으로 데이터베이스 사용자에게 흥미로울 것이다.
 이런 뷰는:
 
 - 사용자가 생성한 스키마 객체와 권한 등과 같은 사용자의 데이터베이스 환경을 나타낸다.
@@ -111,7 +111,7 @@ Base table의 데이터는 데이터베이스가 동작하기 위해서 필요�
 #### 2.2.3. 'DBA' 접두사의 뷰
 위 뷰는 데이터베이스 전체의 글로벌 뷰를 제공한다. 이 뷰에 대한 시노님은 생성되지 않았는데, DBA 뷰는 오직 관리자에 의해서만 조회되어야 하기 때문이다. 그러므로, DBA 뷰를 쿼리하기 위해, 관리자는 다음과 같이 뷰의 앞에 'SYS'를 붙여야 한다.
 
-	SELECT owner, object_name, object_type FROM SYS.DBA_OBJECTS; 
+	SELECT owner, object_name, object_type FROM SYS.DBA_OBJECTS;
 
 오라클은 데이터 사전의 권한을 사용하여 시스템 권한을 가진 사용자로부터 보호하기 위하여 데이터 사전 Protection을 운용하는 것을 추천한다. Dictionary Protection 능기(O7_DICTIONARY_ACCESSIBILITY is false)을 사용한다면, SYS 스키마 데이터 사전에 대한 접근은 엄격하게 제한된다. 여기에 접근할 수 있는 사용자는 SYS와 SYSDBA로 접속한 사람뿐이다.
 

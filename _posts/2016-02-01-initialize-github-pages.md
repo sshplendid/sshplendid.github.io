@@ -2,7 +2,7 @@
 layout: post
 title:  "깃허브 페이지 개설"
 date:   2016-02-01 00:53:00 +0900
-categories: [blog, jekyll]
+categories: [blog, dev, log]
 tags: [github, pages, jekyll, 삽질]
 ---
 몇달 전부터 포트폴리오와 공부한 내용을 정리할 목적으로 블로그 서비스를 알아보던 중에 깃허브 페이지 서비스를 알게되서 곧바로 시도해보았으나 번번히 에러메시지에 막혔다.

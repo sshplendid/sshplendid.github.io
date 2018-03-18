@@ -2,7 +2,7 @@
 layout: post
 title:  "Oracle Shared SQL Area에 대해서"
 date:   2017-06-07 01:00:46 +0900
-categories: [blog, oracle]
+categories: [blog, dev, oracle]
 tags: [database, oracle, sga, shared pool, shared sql area]
 ---
 
@@ -25,7 +25,7 @@ tags: [database, oracle, sga, shared pool, shared sql area]
  오라클의 기본 메모리 구조는 다음과 같다.
    - System Global Area(SGA): 모든 서버와 백그라운드 프로세스에서 공유되는 메모리
    - Program Global Area(PGA): 각 서버와 백그라운드 프로세스에서 각자 사용하는 메모리, 한 프로세스에 하나의 PGA가 존재한다.
-   
+
 ![오라클 메모리 구조](http://docs.oracle.com/cd/B19306_01/server.102/b14220/img/cncpt151.gif "오라클 메모리 구조")
 
 ## System Global Area 개요
@@ -61,7 +61,7 @@ Shared SQL areas는 모든 사용자가 접근 가능하다. 그러므로 librar
 오라클은 Shared SQL Area와 Private SQL area에서 일치하는 SQL 문장을 보여준다. 오라클은 두 사용자가 동일한 SQL 문장을 실행하는 것을 인식하고 Shared SQL Area를 재사용한다.
 
 ###### Shared SQL Areas
-Shared SQL Area는 주어진 SQL 문장에 대한 실행계획과 parse tree를 포함한다. 오라클은 (다수의 사용자가 동일한 SQL을 실행할 때 종종 나타나는) SQL 문장들을 위한 유일한 shared SQL area를 사용함으로써 메모리 사용량을 절감한다. 
+Shared SQL Area는 주어진 SQL 문장에 대한 실행계획과 parse tree를 포함한다. 오라클은 (다수의 사용자가 동일한 SQL을 실행할 때 종종 나타나는) SQL 문장들을 위한 유일한 shared SQL area를 사용함으로써 메모리 사용량을 절감한다.
 
 > Parse tree: SQL 언어의 문법에 기반한 해석 결과물이다. 이 것은 트리구조로 저장되어 있다. 오라클 데이터베이스에서 SQL 문장을 해석해서 생성한 컴파일 코드를 Parse tree라고 부른다. (p.code, parse code 등으로도 불림)
 
