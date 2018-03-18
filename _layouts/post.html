@@ -15,7 +15,9 @@ layout: default
     <br />
     {% if page.categories %}
       {% for category in page.categories %}
-        <span class="category"><a href="/search/?category={{ category }}">{{ category | upcase }}</a></span>
+        {% if category != 'blog' %}
+          <span class="category"><a href="/search/?category={{ category }}">{{ category | upcase }}</a></span>
+        {% endif %}
       {% endfor %}
     {% endif %}
     </p>
