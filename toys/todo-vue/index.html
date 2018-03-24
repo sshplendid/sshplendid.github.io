@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>todo-client</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="./css/bootstrap.min.css" />
+
+</head>
+<body>
+  <div id="todosApp" class="container">
+    <h2 class="text-center">Todo List</h2>
+    <p v-if="currentUser.name" class="text-center"> {{ currentUser.name }} 님, 할 일은 바로바로!</p>
+    <div class="input-group" style="margin-bottom:10px;">
+      <input type="text" class="form-control"
+             autofocus autocomplete="off" placeholder="할일을 입력하세요"
+             @keyup.enter="addTodo" v-model="input" >
+      <span class="input-group-btn">
+        <button class="btn btn-default" @click="addTodo"
+                type="button">추가</button>
+      </span>
+    </div>
+    <ul class="list-group">
+      <li v-for="(todo, index) in filteredTodos" class="list-group-item">
+        <span @click="toggleCompletion(index)" class="glyphicon" :class="{'glyphicon-unchecked': !todo.completion, 'glyphicon-check': todo.completion} "></span>
+        <span class="">{{ todo.message }}</span>
+        <span @click="removeTodo(index)" class="badge"><span class=" glyphicon glyphicon-remove"></span></span>
+      </li>
+    </ul>
+    <div class="input-group" style="margin-bottom:10px;">
+      <div class="btn-group" role="filterGroup">
+        <a class="btn btn-default" href="/toys/todo-vue/#/all" type="button">All <span v-if="filterFlag == 'all'" class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+        <a class="btn btn-default" href="/toys/todo-vue/#/completed" type="button">Completed <span v-if="filterFlag == 'completed'" class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+        <a class="btn btn-default" href="/toys/todo-vue/#/incompleted" type="button">Incompleted <span v-if="filterFlag == 'incompleted'" class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
+      </div>
+      &nbsp;
+      <div class="btn-group" role="authGroup">
+        <a v-if="currentUser.name" class="btn btn-default" type="button" @click="signOut">Sign Out</a>
+        <a v-else class="btn btn-default" type="button" @click="signInPage">Sign In/Sign Up</a>
+      </div>
+    </div>
+  </div>
+  <script src="./js/director.js"></script>
+  <script src="./js/vue.js"></script>
+  <script src="./js/user/userStore.js"></script>
+  <script src="./js/todos/todosStore.js"></script>
+  <script src="./js/todos/todosApp.js"></script>
+  <script src="./js/todos/todosRouter.js"></script>
+  <!--<script src="js/user/userApp.js"></script>-->
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://sshplendid.github.io//toys/todo-vue/css/bootstrap.min.css" />
+</head>
+<body>
+  <div class="container">
+    <div id="loginApp">
+      <div id="signInView" v-if="!signUpVisibility">
+        <h2 class="text-center">로그인 하기</h2>
+        <form action="javascript: return false;">
+          <div class="form-group">
+            <label for="loginEmail">이메일 주소</label>
+            <input type="email" v-model="signInEmail" v-on:keyup.enter="signIn"
+            class="form-control" id="loginEmail" placeholder="lee@naver.com">
+          </div>
+          <a class="btn btn-default" v-on:click="signIn">Sign In</a>
+          <a class="btn btn-default" v-on:click="toggleSignUpWindow">Sign Up</a>
+        </form>
+      </div>
+      <div id="signUpView" v-if="signUpVisibility">
+        <button type="button" class="close" aria-label="Close" v-on:click="toggleSignUpWindow"><span aria-hidden="true">&times;</span></button>
+        <h2 class="text-center">가입 하기</h2>
+        <form action="javascript: return false;">
+          <div class="form-group">
+            <label for="loginEmail">이메일 주소</label>
+            <input type="email" v-model="signUpEmail" v-on:keyup.enter="signUp" class="form-control" id="loginEmail" placeholder="lee@naver.com">
+            <label for="loginEmail">이름</label>
+            <input type="text" v-model="signUpName" v-on:keyup.enter="signUp" class="form-control" id="loginEmail" placeholder="네이버 리">
+            <a class="btn btn-default" v-on:click="signUp">가입 신청</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="signUpWithNaver">
+      <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+      <div id="naverIdLogin"></div>
+      <script type="text/javascript">
+        var naverLogin = new naver.LoginWithNaverId(
+          {
+            clientId: 'mcjnjewRpHuAH8olRciL',
+            callbackUrl: 'https://sshplendid.github.io//callback',
+            isPopup: false, /* 팝업을 통한 연동처리 여부 */
+            loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+          }
+        );
+        naverLogin.init();
+      </script>
+    </div>
+  </div>
+  <script src="https://sshplendid.github.io//toys/todo-vue/js/vue.js"></script>
+  <script src="https://sshplendid.github.io//toys/todo-vue/js/user/userStore.js"></script>
+  <script src="https://sshplendid.github.io//toys/todo-vue/js/user/loginApp.js"></script>
+</body>
+</html>
