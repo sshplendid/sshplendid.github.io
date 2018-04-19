@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div>
+      <button id="grant">알림 권한 요청</button>
+    </div>
+    <div>
+      <input id="message" placeholder="메시지를 입력하세요!" disabled/>
+      <button id="noti" disabled>알림 생성하기</button>
+    </div>
+    <script>
+      (function() {
+        console.log('HTML5 Notification API');
+
+        var grantBtn = document.querySelector('#grant');
+        var message = document.querySelector('#message');
+        var notiBtn = document.querySelector('#noti');
+
+        grantBtn.addEventListener('click', () => {
+          Notification.requestPermission(function(result) {
+            if (result === 'denied') {
+              console.error('Permission denied.');
+              return;
+            }
+
+            toggleDisabled(notiBtn);
+            toggleDisabled(message);
+            toggleDisabled(grantBtn);
+
+          });
+        });
+
+        function toggleDisabled(el) {
+          el.disabled = !el.disabled;
+        }
+
+        function sendMessage(msg) {
+          console.log('clicked! ' + msg);
+          if(msg == null || msg == undefined || msg.length == 0) {
+            console.error('Check Message.');
+            return;
+          }
+
+          var options = {
+            body: msg,
+            icon: null
+          };
+
+          var notification = new Notification('Desktop Notification API 테스트', options);
+
+          var timeoutId = setTimeout(() => {notification.close();}, 3000);
+        }
+
+        notiBtn.addEventListener('click', () =>{
+          sendMessage(message.value);
+        });
+      })();
+    </script>
+  </body>
+</html>
