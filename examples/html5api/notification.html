@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -54,10 +54,10 @@
 
           var notification = new Notification('Desktop Notification API 테스트', options);
 
-          var timeoutId = setTimeout(() => {notification.close();}, 3000);
+          var timeoutId = setTimeout(function() {notification.close();}, 3000);
         }
 
-        notiBtn.addEventListener('click', () =>{
+        notiBtn.addEventListener('click', function() {
           sendMessage(message.value);
         });
       })();
