@@ -19,7 +19,7 @@
         var message = document.querySelector('#message');
         var notiBtn = document.querySelector('#noti');
 
-        grantBtn.addEventListener('click', () => {
+        grantBtn.addEventListener('click', function() {
           if (!('Notification' in window)) {
             alert('이 브라우져는 웹 알림을 지원하지 않아요 ;(');
             return;
