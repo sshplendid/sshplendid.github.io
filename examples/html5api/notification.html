@@ -20,6 +20,10 @@
         var notiBtn = document.querySelector('#noti');
 
         grantBtn.addEventListener('click', () => {
+          if (!('Notification' in window)) {
+            alert('이 브라우져는 웹 알림을 지원하지 않아요 ;(');
+            return;
+          }
           Notification.requestPermission(function(result) {
             if (result === 'denied') {
               console.error('Permission denied.');
@@ -38,7 +42,6 @@
         }
 
         function sendMessage(msg) {
-          console.log('clicked! ' + msg);
           if(msg == null || msg == undefined || msg.length == 0) {
             console.error('Check Message.');
             return;
