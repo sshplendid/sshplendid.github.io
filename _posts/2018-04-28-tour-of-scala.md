@@ -5,6 +5,7 @@ date:   2018-04-28 00:00:00 +0900
 categories: [blog, dev, scala]
 tags: [scala, 스칼라]
 ---
+스칼라 공식 웹사이트 - [Tour of Scala: Basics](https://docs.scala-lang.org/tour/basics.html) 내용을 보고 작성한 포스트입니다.
 
 ## 스칼라 언어의 특징
 
