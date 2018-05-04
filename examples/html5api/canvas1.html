@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Orbit</title>
+    <style>
+      * { padding: 0; margin: 0; }
+      canvas { background: #000000; display: block; margin: 0 auto; }
+    </style>
+  </head>
+  <body>
+    <canvas id="breakout" width="500" height="600"></canvas>
+    <script>
+      'use strict';
+
+      var canvas = document.getElementById('breakout');
+      var ctx = canvas.getContext('2d');
+
+      function Planet(_x, _y, _r, _color) {
+        var x = _x;
+        var y = _y;
+        var r = _r;
+        var color = _color;
+        this.x = function(val) {return x = val || x;};
+        this.y = function(val) {return y = val || y;};
+        this.radius = function(val) {return r = val || r;};
+        this.color = function(val) {return color = val || color;};
+      }
+      Planet.prototype.draw = function() {
+        ctx.beginPath();
+        ctx.moveTo(this.x(), this.y());
+        ctx.arc(this.x(), this.y(), this.radius(), 0, Math.PI*2);
+        ctx.fillStyle = this.color();
+        ctx.fill();
+        ctx.closePath();
+      };
+      Planet.prototype.follow = function(star, degree, distance) {
+        const x1 = star.x() + distance * Math.cos(Math.PI * 2 * (degree / 360));
+        const y1 = star.y() + distance * Math.sin(Math.PI * 2 * (degree / 360));
+        this.x(x1);
+        this.y(y1);
+        ctx.beginPath();
+        ctx.moveTo(this.x(), this.y());
+        ctx.arc(this.x(), this.y(), this.radius(), 0, Math.PI*2);
+        ctx.fillStyle = this.color();
+        ctx.fill()
+        ctx.closePath();
+      }
+      Planet.prototype.followHorizontal = function(star, degree, distance, y) {
+        const x1 = star.x() + distance * Math.cos(Math.PI * 2 * (degree / 360));
+        const y1 = y
+
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.arc(x1, y1, this.radius(), 0, Math.PI*2);
+        ctx.fillStyle = this.color();
+        ctx.fill()
+        ctx.closePath();
+      }
+
+      var sun = new Planet(250, 250, 20, 'yellow');
+      var earth = new Planet(400, 250, 15, 'blue');
+      var moon = new Planet(430, 250, 10, 'white');
+
+      setInterval(function() {
+        this.d = this.d || 0;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        sun.draw();
+        earth.follow(sun, ++this.d%360, 200);
+        earth.followHorizontal(sun, this.d%360, 200, 550);
+        moon.follow(earth, (this.d*3)%360, 30);
+        moon.followHorizontal(earth, (this.d*3)%360, 30, 520);
+      }, 10);
+    </script>
+  </body>
+</html>
