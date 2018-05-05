@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>2D breakout</title>
+    <style>
+      * { padding: 0; margin: 0; }
+      canvas { background: #eee; display: block; margin: 0 auto; }
+    </style>
+  </head>
+  <body>
+    <canvas id="breakout" width="450" height="600"></canvas>
+    <div>
+      <input placeholder="1~450" id="x" />
+      <input placeholder="1~600" id="y" />
+      <input placeholder="1 ~ 10" id="speed" />
+      <button id="move">move</button>
+      <button id="reset">reset</button>
+    </div>
+    <script src="breakout.js"></script>
+  </body>
+</html>
