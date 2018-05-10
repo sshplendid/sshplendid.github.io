@@ -29,12 +29,12 @@ document.addEventListener('keydown', keyDownHandler);
 
 function Ball(_x, _y, _r, _c, _dx, _dy) {
 
-  this.x = function(val) {return _x = val || _x; };
-  this.y = function(val) {return _y = val || _y; };
-  this.dx = function(val) {return _dx = val || _dx; };
-  this.dy = function(val) {return _dy = val || _dy; };
-  this.radius = function(val) {return _r = val || _r; };
-  this.color = function(val) {return _c = val || _c; };
+  this.x = val => _x = val || _x;
+  this.y = val => _y = val || _y;
+  this.dx = val => _dx = val || _dx;
+  this.dy = val => _dy = val || _dy;
+  this.radius = val => _r = val || _r;
+  this.color = val => _c = val || _c;
 
   Ball.prototype.draw = function() {
     ctx.beginPath();
@@ -70,12 +70,12 @@ function Ball(_x, _y, _r, _c, _dx, _dy) {
 }
 
 function Board(_x, _y, _w, _h, _dx, _color) {
-  this.x = function(val) { return _x = val || _x; };
-  this.y = function(val) { return _y = val || _y; };
-  this.w = function(val) { return _w = val || _w; };
-  this.h = function(val) { return _h = val || _h; };
-  this.dx = function(val) { return _dx = val || _dx; };
-  this.color = function(val) { return _color = val || _color; };
+  this.x = val => _x = val || _x;
+  this.y = val => _y = val || _y;
+  this.w = val => _w = val || _w;
+  this.h = val => _h = val || _h;
+  this.dx = val => _dx = val || _dx;
+  this.color = val => _color = val || _color;
 
   Board.prototype.move = function() {
     if(rightPressed) {
@@ -92,7 +92,6 @@ function Board(_x, _y, _w, _h, _dx, _color) {
 
     this.x(this.x() + this.dx());
   };
-
   Board.prototype.draw = function() {
     ctx.beginPath();
     ctx.rect(this.x(), this.y(), this.w(), this.h());
@@ -100,27 +99,69 @@ function Board(_x, _y, _w, _h, _dx, _color) {
     ctx.fill();
     ctx.closePath();
   }
-
 }
 
+function BrickFactory(_r, _c, _w, _h, _color, _padding, _offsetTop, _offsetLeft) {
+  function Brick(_x, _y, _w, _h, _c, _durability) {
+    this.x = val => _x = val || _x;
+    this.y = val => _y = val || _y;
+    this.w = val => _w = val || _w;
+    this.h = val => _h = val || _h;
+    this.c = val => _c = val || _c;
+    this.durability = val => _durability = _durability || val;
 
-(function() {
+    Brick.prototype.draw = Brick.prototype.draw || function() {
+      ctx.beginPath();
+      ctx.rect(this.x(), this.y(), this.w(), this.h());
+      ctx.fillStyle = this.c();
+      ctx.fill();
+      ctx.closePath();
+    };
+  }
+
+  var bricks = [];
+  for(var c = 0; c < _c; c++) {
+    bricks[c] = [];
+    for(var r = 0; r < _r; r++) {
+      var brickX = c * (_w + _padding) + _offsetLeft;
+      var brickY = r * (_h + _padding) + _offsetTop;
+      var durability = 1;
+      bricks[c][r] = new Brick(brickX, brickY, _w, _h, _color, durability);
+    }
+  }
+
+  this.getBricks = () => bricks;
+  this.drawBricks = () => {
+    for(var c = 0; c < _c; c++) {
+      for(var r = 0; r < _r; r++) {
+        bricks[c][r].draw();
+      }
+    }
+  };
+  this.getBrick = (x, y) => bricks[x][y];
+}
+
+// (function() {
   function isOver(ball, intervalId) {
-    if(ball.y() - ball.radius() > canvas.height || ball.x() - ball.radius() < 0 || ball.x() + ball.radius() > canvas.height) {
+    if(ball.y() - ball.radius() > canvas.height || ball.x() - ball.radius() < 0 || ball.x()  + ball.radius() > canvas.height) {
       alert('GAME OVER');
       clearInterval(intervalId);
     }
   }
 
-  var blue = new Ball(100, 100, 10, 'skyblue', 2, 3);
+  var ball = new Ball(100, 100, 10, 'darkgray', 0.5, 0.5);
   var board = new Board(250, 500, 120, 10, 3, 'rgba(36, 68, 38, 0.8)');
+  var bricks = new BrickFactory(4, 4, 80, 20, 'lightgray', 30, 100, 25);
 
   var intervalId = setInterval(function() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    blue.move(board);
-    blue.draw();
+
+    bricks.drawBricks();
+
+    ball.move(board);
+    ball.draw();
     board.move();
     board.draw();
-    isOver(blue, intervalId);
+    isOver(ball, intervalId);
   }, 10);
-})();
+// })();
