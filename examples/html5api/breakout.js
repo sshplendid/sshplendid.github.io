@@ -62,11 +62,39 @@ function Ball(_x, _y, _r, _c, _dx, _dy) {
 
     this.x(this.x() + this.dx());
     this.y(this.y() + this.dy());
-    console.log('(x, y) => (' + this.x() + ', ' + this.y() + ', ' + this.dy() + ')');
+    console.debug('(x, y) => (' + this.x() + ', ' + this.y() + ', ' + this.dy() + ')');
   };
-  Ball.prototype.registance = function() {
-    return 0.9;
+  Ball.prototype.detectCollision = (bricks) => {
+    var _c = bricks.length;
+    for(var c = 0; c < _c; c++) {
+      var _r = bricks[c].length;
+      for(var r = 0; r < _r; r++) {
+        var b = bricks[c][r];
+        if(b.durability() > 0 && this.x() + this.radius() > b.x() && this.x() + this.radius() < b.x() + b.w()
+            && this.y() + this.radius() > b.y() && this.y() + this.radius() < b.y() + b.h()) {
+              console.info('detectCollision');
+          // TODO 벽돌 안에 들어가는 버그 수정하기
+          if(this.x() < b.x() )
+            this.dx((-1)*this.dx());
+          else
+            this.dy((-1)*this.dy());
+          b.collision();
+        }
+      }
+    }
+  };
+}
+
+function BallManager(number) {
+  var balls = [];
+  for(var i = 0; i < number; i++) {
+    balls[i] = new Ball(230, 230, 3, 'blue', (Math.random() - 0.5)*4, (Math.random() - 0.5)*4);
   }
+
+  this.get = i => balls[i] || 0;
+  this.getAll = () => balls;
+  this.length = balls.length;
+  this.allGone = () => balls.filter(ball => ball.y() - ball.radius() > canvas.height || ball.x() - ball.radius() < 0 || ball.x()  + ball.radius() > canvas.height).length  == balls.length;
 }
 
 function Board(_x, _y, _w, _h, _dx, _color) {
@@ -108,8 +136,8 @@ function BrickFactory(_r, _c, _w, _h, _color, _padding, _offsetTop, _offsetLeft)
     this.w = val => _w = val || _w;
     this.h = val => _h = val || _h;
     this.c = val => _c = val || _c;
-    this.durability = val => _durability = _durability || val;
-
+    this.durability = val => _durability = val || _durability;
+    this.color = [undefined, 'red', 'orange', 'greent'];
     Brick.prototype.draw = Brick.prototype.draw || function() {
       ctx.beginPath();
       ctx.rect(this.x(), this.y(), this.w(), this.h());
@@ -117,39 +145,49 @@ function BrickFactory(_r, _c, _w, _h, _color, _padding, _offsetTop, _offsetLeft)
       ctx.fill();
       ctx.closePath();
     };
+    this.collision = function() {
+      if(_durability > 0)
+      _durability -= 1;
+      this.c(this.color[_durability]);
+      console.warn(`(${c}, ${r}) => ${_durability}`);
+    };
   }
 
+  var color = [undefined, 'red', 'orange', 'green'];
   var bricks = [];
   for(var c = 0; c < _c; c++) {
     bricks[c] = [];
     for(var r = 0; r < _r; r++) {
       var brickX = c * (_w + _padding) + _offsetLeft;
       var brickY = r * (_h + _padding) + _offsetTop;
-      var durability = 1;
-      bricks[c][r] = new Brick(brickX, brickY, _w, _h, _color, durability);
+      var durability = Math.ceil(Math.random()*3) ;
+      // console.warn(`(${c}, ${r}) => ${durability}`);
+      bricks[c][r] = new Brick(brickX, brickY, _w, _h, color[durability], durability);
     }
   }
 
   this.getBricks = () => bricks;
-  this.drawBricks = () => {
+  this.getBrick = (x, y) => bricks[x][y];
+  BrickFactory.prototype.drawBricks = () => {
     for(var c = 0; c < _c; c++) {
       for(var r = 0; r < _r; r++) {
-        bricks[c][r].draw();
+        if(bricks[c][r].durability() > 0)
+          bricks[c][r].draw();
       }
     }
   };
-  this.getBrick = (x, y) => bricks[x][y];
 }
 
 // (function() {
-  function isOver(ball, intervalId) {
-    if(ball.y() - ball.radius() > canvas.height || ball.x() - ball.radius() < 0 || ball.x()  + ball.radius() > canvas.height) {
+  function isOver(ballManager, intervalId) {
+    // if(ball.y() - ball.radius() > canvas.height || ball.x() - ball.radius() < 0 || ball.x()  + ball.radius() > canvas.height) {
+    if(ballManager.allGone()) {
       alert('GAME OVER');
       clearInterval(intervalId);
     }
   }
 
-  var ball = new Ball(100, 100, 10, 'darkgray', 0.5, 0.5);
+  var ballManager = new BallManager(1);
   var board = new Board(250, 500, 120, 10, 3, 'rgba(36, 68, 38, 0.8)');
   var bricks = new BrickFactory(4, 4, 80, 20, 'lightgray', 30, 100, 25);
 
@@ -157,11 +195,11 @@ function BrickFactory(_r, _c, _w, _h, _color, _padding, _offsetTop, _offsetLeft)
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     bricks.drawBricks();
-
-    ball.move(board);
-    ball.draw();
+    ballManager.getAll().forEach(ball => ball.detectCollision(bricks.getBricks()));
+    ballManager.getAll().forEach(ball => ball.move(board));
+    ballManager.getAll().forEach(ball => ball.draw());
     board.move();
     board.draw();
-    isOver(ball, intervalId);
+    isOver(ballManager, intervalId);
   }, 10);
 // })();
