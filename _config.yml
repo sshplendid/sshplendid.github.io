@@ -13,11 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: I know nothing.
-email: sshplendid@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  난 모릅니다.
-  Suwon to Seoul<br/>
+title: Code distillery
+email: 
+description: # this means to ignore newlines until "baseurl:"
+  
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
 
@@ -30,7 +29,7 @@ plugins:
   - jekyll-paginate
 
 ## custom settings
-paginate: 10
+paginate: 5
 paginate_path: "/blog/pages/:num"
 permalink: pretty
 # show_drafts: BOOL
@@ -41,15 +40,15 @@ timezone: ASIA/Seoul
 ## Author Settings
 author: SeHun Shin # add your name
 author-img: about/me.png # add your photo
-about-author: I am a web developer. Always hungry to keep learning.
-social-twitter: #
+about-author: A web developer, run everywhere, learn for a lifetime.
+social-twitter: via_SSH
 social-facebook: # add your Facebook handle
 social-github: sshplendid
 social-linkedin: sehunshin
 social-email: s.shin@marathoner.kr
 
 ## Disqus
-discus-identifier: dev-sshplendid # add your discus identifier
+discus-identifier: sshplendid # add your discus identifier
 
 ## Tracker
 analytics: # Google Analytics
