@@ -1,4 +1,26 @@
 _site
 .sass-cache
 .jekyll-metadata
+
+
+# Created by https://www.gitignore.io/api/git,code,jekyll
+
+### Code ###
+# Visual Studio Code - https://code.visualstudio.com/
+.settings/
+.vscode/
+tsconfig.json
+jsconfig.json
+
+### Git ###
+*.orig
+
+### Jekyll ###
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+
 .DS_Store
+# End of https://www.gitignore.io/api/git,code,jekyll
