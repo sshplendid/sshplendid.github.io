@@ -3,6 +3,7 @@ layout: post
 title:  "튜토리얼을 통해 배우는 Node.js 프로젝트 구조"
 date:   2018-06-10 22:50:00 +0900
 categories: [blog, dev, nodejs]
+img: https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png
 tags: [nodejs, project, structure, 번역]
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title:  "스칼라 맛보기 - Tour of Scala"
 date:   2018-04-28 00:00:00 +0900
 categories: [blog, dev, scala]
+img: https://upload.wikimedia.org/wikipedia/commons/5/5c/Scala_del_Palladio.jpg
 tags: [scala, 스칼라]
 ---
 스칼라 공식 웹사이트 - [Tour of Scala: Basics](https://docs.scala-lang.org/tour/basics.html) 내용을 보고 작성한 포스트입니다.
