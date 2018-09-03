@@ -26,11 +26,7 @@ tags: [coursera, mooc, datascience]
 
 MOOC에 대한 뉴스를 접하고 바로 [코세라][coursera]에 가입해서 코스를 둘러보았다. 코세라는 세계 여러 대학교, 기업들과 파트너십을 맺고 수업을 기획한다. 파트너 중에는 한국의 연세대와 카이스트가 포함되어 있다. 그리고 대학교의 전공과 유사한 Specialization이라는 제도를 운영하고 있다. 하나의 주제와 관련된 수업을 묶어 코스로 운영하고 캡스톤 프로젝트도 진행한다. 내가 선택한 [데이터 사이언스][data-science] 코스는 9개 수업과 캡스톤 프로젝트로 이루어져 있다. 존스홉킨스 대학에서 만들었고 yelp, swiftKey와 파트너십을 맺고 진행한다.
 
-<<<<<<< HEAD
-!['데이터 사이언스' 코스는 존스홉킨스 대학에서 만들었고 yelp, swiftKey와 파트너십을 맺고 진행한다.]({{site.baseurl}}/images/posts/2016-02-06-about-coursera-class_coursera.png)
-=======
 !['데이터 사이언스' 코스는 존스홉킨스 대학에서 만들었고 yelp, swiftKey와 파트너십을 맺고 진행한다.]({{site.baseurl}}/static/images/posts/2016-02-06-about-coursera-class/coursera.png)
->>>>>>> renewal
 
 ### Financial aid is available
 
@@ -47,39 +43,23 @@ If you would like to earn a Course Certificate but cannot afford it, please appl
 
 수업은 주 단위로 나누어져있고, 각 주마다 들어야 할 영상이 주제별로 나눠져있다. 각 영상 혹은 포스트는 모바일에서도 접근 가능하기 때문에 의지만 있다면 부담스럽지 않게 학습할 수 있다. 수업마다 다르겠지만 각 영상은 대게 15분을 넘지 않는다.
 
-<<<<<<< HEAD
-![각 영상은 보통 15분을 넘지 않는다.]({{site.baseurl}}/images/posts/2016-02-06-about-coursera-class_lessons.png)
-=======
 ![각 영상은 보통 15분을 넘지 않는다.]({{site.baseurl}}/static/images/posts/2016-02-06-about-coursera-class/lessons.png)
->>>>>>> renewal
 
 강의계획서도 존재한다.
 
 ### 11,432명의 수강인원
 
-<<<<<<< HEAD
-![학생 위치 지도]({{site.baseurl}}/images/posts/2016-02-06-about-coursera-class_map.png)
-
-각 수업의 수강인원은 보통 천 단위를 넘는다. 내가 수강한 'The Data Scientist’s Toolbox' 수업은 96개 나라의 11,432명이 신청했다. 퀴즈같은 경우 객관식으로 진행되기 때문에 시스템이 처리할 수 있지만 과제의 경우 강사가 일일히 보고있을 수 없다. 이를 해결하기 위해 코세라는 peer review라는 방식을 사용한다. Peer review는 강사가 평가하는 대신 수업을 함께 듣는 4명의 사람이 과제를 확인하고 동일한 설문 양식으로 점수를 부여한다. 그리고 과제를 제출한 사람 역시 또다른 4명의 과제를 평가해야만 점수를 획득할 수 있다.
-
-![Peer review]({{site.baseurl}}/images/posts/2016-02-06-about-coursera-class_peerreview.png)
-=======
 ![학생 위치 지도]({{site.baseurl}}/static/images/posts/2016-02-06-about-coursera-class/map.png)
 
 각 수업의 수강인원은 보통 천 단위를 넘는다. 내가 수강한 'The Data Scientist’s Toolbox' 수업은 96개 나라의 11,432명이 신청했다. 퀴즈같은 경우 객관식으로 진행되기 때문에 시스템이 처리할 수 있지만 과제의 경우 강사가 일일히 보고있을 수 없다. 이를 해결하기 위해 코세라는 peer review라는 방식을 사용한다. Peer review는 강사가 평가하는 대신 수업을 함께 듣는 4명의 사람이 과제를 확인하고 동일한 설문 양식으로 점수를 부여한다. 그리고 과제를 제출한 사람 역시 또다른 4명의 과제를 평가해야만 점수를 획득할 수 있다.
 
 ![Peer review]({{site.baseurl}}/static/images/posts/2016-02-06-about-coursera-class/peerreview.png)
->>>>>>> renewal
 
 과제에 대한 평가를 위해 질문을 하고 점수를 매긴다. 그리고 평가 이유나 개선사항같은 것을 피평가자에게 남길 수 있다.
 
 ### PASS, PASS 그리고 COMPLETE
 
-<<<<<<< HEAD
-![course complete]({{site.baseurl}}/images/posts/2016-02-06-about-coursera-class_complete.png)
-=======
 ![course complete]({{site.baseurl}}/static/images/posts/2016-02-06-about-coursera-class/complete.png)
->>>>>>> renewal
 
 4주에 걸친 수업은 과제를 마지막으로 끝났다. 3주차 퀴즈에서 한 문제를 틀려서 최종적으로 96%의 점수를 받았지만 나쁘지 않다. 나는 무료로 수강했기 때문에 인증서가 발급되지 않았다. 만약 인증서를 발급하면 코세라와 제휴관계인 학교, 기업에서 수료에 대한 어드밴티지가 주어진다. 예를 들어 [몇몇 학교에선 코세라 수료 과목에 대해 학점인정을 해주기도 한다][advantage]. 그리고 [링크드인에서 내가 들은 수업을 프로필에 게시할 수도 있다][linkedin].
 
