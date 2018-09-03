@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "블로그 리뉴얼"
-date:   2018-09-03 11:18:00 +0900
+date:   2018-09-04 00:17:00 +0900
 categories: [blog, dev, jekyll]
 img: "https://upload.wikimedia.org/wikipedia/commons/9/93/FEMA_-_39960_-_Volunteers_help_rebuild_Anahuac_NWR_after_devastation_of_Hurricane_Ike.jpg"
 tags: [blog, renewal, jekyll, flexible-jekyll, git]
