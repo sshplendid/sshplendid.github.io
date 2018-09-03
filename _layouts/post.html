@@ -6,10 +6,14 @@ layout: main
     {% if page.img %}
     <div class="page-cover-image">
       <figure>
+      {% if page.img contains 'https://' or page.img contains 'http://' $} 
+        <img class="page-image" src={{ page.img }} alt="{{page.title}}">
+      {% else %}
         <img class="page-image" src={{ "/static/images/posts/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}">
-        {% if page.fig-caption %}
-          <figcaption>{{page.fig-caption}}</figcaption>
-        {% endif %}
+      {% endif %}
+      {% if page.fig-caption %}
+         <figcaption>{{page.fig-caption}}</figcaption>
+      {% endif %}
       </figure>
     </div> <!-- End Page Cover Image -->
     {% else %}
