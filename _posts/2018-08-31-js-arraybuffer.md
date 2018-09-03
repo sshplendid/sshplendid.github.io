@@ -3,7 +3,7 @@ layout: post
 title:  "JavaScript의 ArrayBuffer"
 date:   2018-08-31 11:18:00 +0900
 categories: [blog, dev, js]
-img: "https://goo.gl/images/zvsCDv"
+img: "https://cdn.pixabay.com/photo/2018/05/03/12/15/buffer-stop-3371224_960_720.jpg"
 tags: [JavaScript, ArrayBuffer, DataView]
 ---
 [만화로 소개하는 ArrayBuffer 와 SharedArrayBuffer](http://hacks.mozilla.or.kr/2017/11/a-cartoon-intro-to-arraybuffers-and-sharedarraybuffers/) 를 읽고 ArrayBuffer에 대해서 알아보기로 했다.
