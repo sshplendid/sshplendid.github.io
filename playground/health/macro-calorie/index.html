@@ -1,0 +1,94 @@
+---
+layout: default
+title: "매크로 칼로리 계산기"
+---
+<div id="app">
+  <header>
+    <h1>내게 필요한 칼로리를 계산해보자!</h1>
+  </header>
+  <section>
+    <div id="survey">
+      <p>
+        나는  
+        <input id="age" type="number" min="0" max="200" placeholder="나이"/>
+        살 
+        <select id="gender">
+          <option value="">선택</option>
+          <option value="male">남성</option>
+          <option value="female">여성</option>
+        </select>
+        입니다.
+        </p>
+        <p>그리고 키는 
+        <input id="height" type="number" min="0" max="300" placeholder="키"/>
+        cm, 체중은
+        <input id="weight" type="number" min="0" max="500" placeholder="체중"/>
+        kg 입니다.
+        <!-- 기초대사 = 10 * 체중 + 6.25 * 신장 - 5 * 나이 + (gender == 'male') ? 5 : -161 -->
+      </p>
+      
+      <p>
+        나는 활동레벨이 
+          <select id="activity">
+          <option value="">선택</option>
+          <option value="low">낮은</option>
+          <option value="normal">보통의</option>
+          <option value="high">높은</option>
+        </select>
+        상태이고, 앞으로 
+        <!-- 활동대사량 = 활동레벨 * 기초대사 -->
+        <select id="purpose">
+          <option value="">선택</option>
+          <option value="bulkup">벌크업</option>
+          <option value="stay">현상유지</option>
+          <option value="reduce">체중감량</option>
+        </select>
+        <!-- 하루 섭취칼로리 = 하루 소비칼로리 * 목적 -->
+        목적으로 칼로리를 계산하겠습니다.
+      </p>
+      <label for="activity-desc">활동레벨의 기준</label>
+      <ul name="activity-desc">
+        <li>주로 앉아서 일하며, 하루에 하는 운동은 걷거나 계단을 올라가는 정도.</li>
+        <li>서서 하는 일이나 중노동이 많고, 비교적 하루종일 돌아다니는 편.</li>
+        <li>서서 하는 일이나 중노동이 많고, 추가로 헬스장에서 트레이닝을 하거나 운동을 한다.</li>
+      </ul>
+    </div>
+    <div id="calculator">
+      <h1>당신의 기초대사량: <span id="bmr"></span></h1>
+      <h1>당신의 활동대사량: <span id="amr"></span></h1>
+      <h1>하루 섭취해야하는 칼로리: <span id="calories"></span></h1>
+      <h1>탄수화물 섭취량: <span id="carbo"></span></h1>
+      <h1>단백질 섭취량: <span id="protein"></span></h1>
+      <h1>지방 섭취량: <span id="fat"></span></h1>
+      <!--
+        매크로 영양소 산출
+        1. 단백질 = 체중 * 2 (g)
+        2. 지방 = 칼로리 * 0.25
+        3. 탄수화물 = 총 칼로리 - (단백질 + 지방)(kcal)
+      -->
+    </div>
+    <div id="share">
+      <h1>공유하기</h1>
+    </div>
+
+  </section>
+  <footer>
+    
+  </footer>
+</div>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel" src="utils.js"></script>
+<script type="text/babel" src="calculator.js"></script>
+<script type="text/babel">
+  'use strict';
+  console.debug = (message) => console.log(message);
+
+  const calculator = new Calculator();
+  const parameters = _.parse(_.parse(window.location.href.split('?')[1], '&', '=').q, ',', ':');
+  calculator.gender = _.get(parameters, 'gender');
+  calculator.age = _.get(parameters, 'age');
+  calculator.weight = _.get(parameters, 'weight');
+  calculator.height = _.get(parameters, 'height');
+  calculator.activity = _.get(parameters, 'activity');
+  calculator.purpose = _.get(parameters, 'purpose');
+</script>
