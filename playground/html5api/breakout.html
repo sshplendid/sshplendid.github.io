@@ -3,7 +3,48 @@ layout: default
 title: "Canvas를 이용한 2D Breakout"
 ---
 <style>
-  * { padding: 0; margin: 0; }
-  canvas { background: #eee; display: block; margin: 0 auto; }
+  <style>
+      * { padding: 0; margin: 0; }
+      html, body {
+        height: 100%;
+        width: 100%;
+      }
+      canvas { background: #eee; display: block; margin: 0 auto; }
+      .full {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        left: 0px;
+        top: 0px;
+      }
+      .mouseCtrl {
+       z-index: 1; 
+      }
+      .leftFull {
+        position: fixed;
+        height: 100%;
+        width: 50%;
+        left: 0px;
+        top: 0px;
+        z-index: 3;
+      }
+      .rightFull {
+        position: fixed;
+        height: 100%;
+        width: 50%;
+        top: 0px;
+        z-index: -3;
+      }
+      .app {
+        z-index:-1;
+      }
+      .popup {
+        float: left;
+        position: fixed;
+        top: 20px;
+        left: 620px;
+        z-index: 2;
+      }
+    </style>
 </style>
 <script src="https://rawgit.com/sshplendid/breakout-in-javascript/master/dist/breakout.js"></script>
