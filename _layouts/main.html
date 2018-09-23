@@ -10,6 +10,10 @@ layout: default
       </div>
       <div class="author-name">{{site.author}}</div>
       <p>{{site.about-author}}</p>
+      <p id="astro"></p>
+      <script>
+        document.querySelector('#astro').innerText = `D+${Math.floor((new Date() - new Date('Sun Sep 22 2018 00:00:00 GMT+0900'))/(24*60*60*1000))}`;
+      </script>
     </div>
   </header> <!-- End Header -->
   <footer>
