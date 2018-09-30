@@ -85,8 +85,8 @@
 
                 // To make computation easier we shift the range of 
                 // x and y to [0,180]
-                x += 90;
-                y += 90;
+                x -= 90;
+                y -= 90;
                 
                 var dx = parseInt(ball.style.left.replace(/[^\d]+/, '')) + 7*(x/90);
                 var dy = parseInt(ball.style.top.replace(/[^\d]+/, '')) + 7*(y/90);
