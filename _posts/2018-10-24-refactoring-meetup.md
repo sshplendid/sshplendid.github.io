@@ -4,7 +4,7 @@ title:  "잠실 Refactoring Meetup 간단 정리"
 date:   2018-10-24 00:00:00 +0900
 categories: [blog, dev, tdd]
 img: "https://www.dotnetcurry.com/images/software-gardening/5344e9810637_9CFB/refactoring.png"
-tags: [java, refactoring, tdd, test, mockito]
+tags: [java, refactoring, tdd, test, mockito, meetup]
 ---
 
 # Mock Framework를 사용한 Test case 작성 - 잠실 Refactoring Meetup
@@ -80,7 +80,16 @@ IEEE Standard 610 (1990)
 
 테스트 하고 싶은 클래스를 상속받아 대역(double) 메소드를 오버라이드 구현
 
-* Mock: 실제 객체의 행동을 의도한 방향으로 흉내 내도록 설계 된 객체. 객체의 행동을 테스트 하기 위해 사용
+* 테스트 더블의 종류
+  * Dummy: 단지 인스턴스화된 객체가 필요할 뿐 해당 객체의 기능까지는 불필요한 경우에 사용됨. 그래서 더미 객체의 메소드가 호출됐을 때 정상 동작을 보장하지 않음.
+  * Stub: 더미 객체가 실제로 동작하는 것처럼 보이겍 만든 객체. 특정 상태나 모습을 대표함 (하드코딩)
+  * Fake Object: 여러 인스턴스를 대표할 수 있는 경우 혹은 복잡한 구현이 들어가있는 객체
+  * Spy: 특정 객체, 객체의 메소드가 정상적으로 사용됐는지 확인할 목적으로 구현된 객체. 아래의 예제를 참고
+  * Mock: 실제 객체의 행동을 의도한 방향으로 흉내 내도록 설계 된 객체. 객체의 행동을 테스트 하기 위해 사용
+
+* 상태 기반 vs 행위 기반
+  * 상태 기반 테스트 (State base test): 테스트 대상 클래스의 메소드를 호출하고, 그 결과값과 예상값을 비교하는 식으로 검증
+  * 행위 기반 테스트 (Behavior base test): 테스트의 판단 근거로 특정한 동작의 수행 여부를 이용.
 
 ```java
 // SmsSender, 문자메시지 송신 기능을 수행
