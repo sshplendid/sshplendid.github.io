@@ -3,7 +3,8 @@ layout: post
 title:  "내가 TDD에 관심을 가지게 된 이유"
 date:   2018-11-14 00:00:00 +0900
 categories: [blog, dev, log]
-tags: [tdd, test, refactoring]
+img: "https://mynetdev.files.wordpress.com/2016/01/tdd.png"
+tags: [tdd, test, refactoring, okkycon]
 ---
 
 # 내가 TDD에 관심을 가지게 된 이유
