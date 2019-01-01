@@ -3,7 +3,7 @@ layout: post
 title:  "2018년 회고"
 date:   2018-12-31 00:00:00 +0900
 categories: [blog, dev, log]
-img: ""
+img: "/covers/2018-12-31-retrospective.png"
 tags: [2018, 회고]
 ---
 
