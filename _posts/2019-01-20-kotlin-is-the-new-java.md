@@ -281,6 +281,25 @@ Java에서 Lombok을 사용해야 가능한 코드가 Kotlin에선 기본으로 
 * `toString`: 주생성자 프로퍼티를 출력
 * 비구조화 할당(Destructuring Declarations)
 
+### Spring 연동
+
+Java의 대표적인 웹 프레임워크인 스프링 역시 코틀린을 지원한다. Gradle로 구성된 프로젝트에서 스프링에 코틀린을 사용하기 위해선 플러그인과 의존성 등 몇 가지 설정을 추가해야 한다.
+
+```gradle
+buildscript {
+    ext.kotlin_version = '1.3.11'
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$spring_version")
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version" // See https://kotlinlang.org/docs/reference/compiler-plugins.html#spring-support
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" // Required for Kotlin integration
+    }
+}
+
+// ...
+
+apply plugin: 'kotlin-spring' // 코틀린 클래스는 기본적으로 final이기 때문에 필요한 설정, https://infoscis.github.io/2018/08/30/spring-boot-kotlin/
+```
+
 ## 글을 마치며
 
 Kotlin의 기본적인 문법과 Java와의 관계에 대해서 알아봤는데, 실무에서 점진적으로 적용하고 싶단 생각이 든다. 지난 JetBrains 컨퍼런스에서 코틀린 적용 경험을 공유해주신 디밥님은 아래와 같이 코틀린을 도입하길 권고했다.
