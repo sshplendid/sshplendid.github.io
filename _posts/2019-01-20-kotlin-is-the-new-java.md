@@ -30,6 +30,7 @@ Kotlin은 람다 표현식, 고차함수 등 함수형 프로그래밍 패러다
 ## 특징
 
 Kotlin은 JVM 언어이고 Java와 100% 호환을 목표로 개발되었다. Kotlin 파일은 Java byte code(`.class`)로 컴파일되어 JVM 위에서 실행된다.
+동일 기능에 대해 Java와 코틀린으로 구현하고 각 언어의 특징을 확인해보려고 했고, [github 저장소](https://github.com/sshplendid/JavaWithKotlinExample)에 업로드 해두었다.
 
 ### Java와 100% 호환
 
