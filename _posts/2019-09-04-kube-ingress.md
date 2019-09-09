@@ -3,7 +3,7 @@ layout: post
 title:  "Kubernetes Ingress"
 date:   2019-09-04 15:54:00 +0900
 categories: [blog, dev, kubernetes]
-img: https://d33wubrfki0l68.cloudfront.net/1567471e7c58dc9b7d9c65dcd54e60cbf5870daa/da576/_common-resources/images/flower.png
+img: /covers/helmsman.png
 tags: [kubernetes, ingress, eks, gateway, devops]
 ---
 
