@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  
+  <script>
+    const link = {nodes: {}, posts: []};
+    fetch('http://localhost:4000/meta.json').then(res => res.json().then(json => {
+      json.filter(post => post !== null)
+      .sort((a, b) => a.category.join('') > b.category.join(''))
+      .forEach(post => {
+        console.log(`${post.category.filter(category => category !== null).join(' >> ')}: ${post.title}`);
+      });
+
+      console.log(link);
+    }));
+
+  </script>
+</body>
+</html>

@@ -3,7 +3,7 @@ layout: post
 title:  "ElasticSearch가 데이터를 적재/검색하는 방법"
 date:   2019-08-28 17:20:00 +0900
 categories: [blog, dev, elasticsearch]
-img: "https://www.aquafadas.com/wp-content/uploads/2016/12/app-1.png"
+img: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Sentence_illustration_.jpg"
 tags: [elasticsearch, es, 엘라스틱서치]
 ---
 

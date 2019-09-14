@@ -3,7 +3,7 @@ layout: post
 title:  "ElasticSearch 컨셉"
 date:   2019-08-28 00:08:00 +0900
 categories: [blog, dev, elasticsearch]
-img: "https://logz.io/wp-content/uploads/2018/10/image-3.png"
+img: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Sentence_illustration_.jpg"
 tags: [elasticsearch, es, 엘라스틱서치]
 ---
 
