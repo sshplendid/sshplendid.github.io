@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ECPJT log-2"
-date:   2019-09-14 23:43:00 +0900
+date:   2019-09-14 13:52:00 +0900
 categories: [blog, log, ecpjt]
 img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReLkysShXNrI8Z7KDRS_bzYwEfVgYEuYygirGhb25fUrL0qbRD"
 tags: [msa, ecpjt]
