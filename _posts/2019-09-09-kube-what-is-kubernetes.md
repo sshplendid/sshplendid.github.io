@@ -4,7 +4,7 @@ title:  "쿠버네티스 컨셉1"
 date:   2019-09-09 19:03:00 +0900
 categories: [blog, dev, kubernetes]
 img: /covers/helmsman.png
-tags: [kubernetes, 쿠버네티스, devops]
+tags: [kubernetes, 쿠버네티스, devops, translation]
 ---
 
 ## 쿠버네티스는 무엇인가

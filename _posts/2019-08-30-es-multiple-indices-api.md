@@ -4,7 +4,7 @@ title:  "ElasticSearch API: Multiple Indices"
 date:   2019-08-30 00:08:00 +0900
 categories: [blog, dev, elasticsearch]
 img: "https://upload.wikimedia.org/wikipedia/commons/c/c9/Sentence_illustration_.jpg"
-tags: [elasticsearch, es, 엘라스틱서치, docker]
+tags: [elasticsearch, es, 엘라스틱서치, docker, translation]
 ---
 
 [공식가이드: 다중 인덱스 API](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/multi-index.html)에 대한 내용을 정리해봤다.

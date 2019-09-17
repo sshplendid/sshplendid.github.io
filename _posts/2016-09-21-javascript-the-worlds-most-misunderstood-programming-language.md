@@ -3,7 +3,7 @@ layout: post
 title:  "JavaScript: 지구에서 가장 오해받는 프로그래밍 언어"
 date:   2016-09-22 01:11:00 +0900
 categories: [blog, dev, js]
-tags: [javascript, 번역, Douglas Crockford]
+tags: [javascript, 번역, Douglas Crockford, translation]
 ---
 원문: [JavaScript:The World's Most Misunderstood Programming Language](http://javascript.crockford.com/javascript.html)
 

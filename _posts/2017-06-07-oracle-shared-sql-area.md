@@ -3,7 +3,7 @@ layout: post
 title:  "Oracle Shared SQL Area에 대해서"
 date:   2017-06-07 01:00:46 +0900
 categories: [blog, dev, oracle]
-tags: [database, oracle, sga, shared pool, shared sql area]
+tags: [database, oracle, sga, shared pool, shared sql area, translation]
 ---
 
 # 8 메모리 구조

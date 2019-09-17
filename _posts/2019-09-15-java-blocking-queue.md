@@ -4,7 +4,7 @@ title:  "Java: BlockingQueue"
 date:   2019-09-15 18:32:00 +0900
 categories: [blog, dev, java]
 img: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Java_collection_interfaces.svg"
-tags: [java, blockingqueue, concurrent]
+tags: [java, blockingqueue, concurrent, translation]
 ---
 [JavaDoc - Blocking Queue](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html)를 보고 정리한 내용이다.
 

@@ -4,7 +4,7 @@ title:  "Kubernetes Ingress"
 date:   2019-09-04 15:54:00 +0900
 categories: [blog, dev, kubernetes]
 img: /covers/helmsman.png
-tags: [kubernetes, ingress, eks, gateway, devops]
+tags: [kubernetes, ingress, eks, gateway, devops, translation]
 ---
 
 ## Ingress
