@@ -51,8 +51,8 @@ IAM Policy for EC2 to attach the network interface
 ```
 
 
-
-```console
+```bash
+#!/bin/bash
 # EC2 AutoScailing user data script
 
 # 인스턴스 메타데이터 조회
