@@ -21,13 +21,15 @@ EC2는 AutoScailing 정책에 의해 언제든지 scail in/out 될 수 있는 �
 
 ## 테스트
 
+### 전제조건
+
 * EC2 role: ENI 리스트를 조회할 수 있는 권한, ENI를 연결할 수 있는 권한이 필요하다.
   * DescribeNetworkInterfaces: ENI를 조회할 수 있는 IAM 정책
   * AttachNetworkInterface: ENI를 EC2에 연결할 수 있는 IAM 정책
 * 특정 서브넷에서 사용할 ENI와 EC2:
   * ENI는 VPC와 서브넷을 지정해서 생성해야 한다.
   * 그러므로 ENI를 사용하는 EC2인스턴스도 특정 서브넷에서만 시작할 수 있다.
-* AutoScailing 구성에서 유저 데이터에 eni를 연결하는 스크립트를 추가한다.
+  * 오토스케일링 그룹에서 사용할 ENI는 필터로 조건검색할 수있도록 `Type: Dedicated-ENI` 태그를 설정해둔다.
 
 
 IAM Policy for EC2 to attach the network interface
