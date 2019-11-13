@@ -4,7 +4,7 @@ title:  "그래들을 사용해서 EC2에서 스프링 애플리케이션 구동
 date:   2019-11-13 15:05:00 +0900
 categories: [blog, dev, log]
 # img: 
-tags: [gradle, spring, ec2, devops, java]
+tags: [gradle, spring, aws, ec2, devops, java]
 ---
 
 로컬에서 개발한 스프링 부트 애플리케이션을 AWS EC2 위에서 실행하는 스크립트를 만들어보았다.
