@@ -3,12 +3,14 @@ layout: post
 title:  "AWS Cloudformation CLI"
 date:   2019-11-22 15:05:00 +0900
 categories: [blog, cloud, aws]
-# img: 
+img: "https://p2.piqsels.com/preview/320/918/427/sky-clouds-sunlight-dark.jpg"
 tags: [aws, cloudformation, cli]
 ---
 
 클라우드포메이션을 사용하며 기본적인 CLI 커맨드를 소개한다.
 프로파일=my로 설정해서 사용했기 때문에 중간에 프로파일 파라미터가 들어가있다.
+
+CLI 명령에서 사용한 템플릿 파일은 [gist](https://gist.github.com/sshplendid/1a935e22f7e036dd8d7b34801cfe01fe)에서 확인할 수 있다.
 
 # `ValidateTemplate`
 
@@ -45,7 +47,7 @@ $ aws cloudformation --profile my list-stacks --stack-status-filter CREATE_COMPL
 {
     "StackSummaries": [
         {
-            "StackId": "arn:aws:cloudformation:ap-northeast-2:160770579176:stack/stack-by-cli/9fc0abb0-0cf0-11ea-bbba-0a70bc372970",
+            "StackId": "arn:aws:cloudformation:ap-northeast-2:123412341234:stack/stack-by-cli/9fc0abb0-0cf0-11ea-bbba-0a70bc372970",
             "StackName": "stack-by-cli",
             "TemplateDescription": "This is my VPC template",
             "CreationTime": "2019-11-22T06:23:40.143Z",
@@ -65,7 +67,7 @@ $ aws cloudformation --profile my list-stacks --stack-status-filter CREATE_COMPL
 ```console
 $ aws cloudformation --profile my create-stack --stack-name ec2-stack --template-url https://japdongsany.s3.ap-northeast-2.amazonaws.com/cf-ec2.yml --parameters ParameterKey=myStamp,ParameterValue=cli ParameterKey=MyVPCStackName,ParameterValue=stack-by-cli 
 {
-    "StackId": "arn:aws:cloudformation:ap-northeast-2:160770579176:stack/ec2-stack/4ef13bc0-0cf3-11ea-a326-06435d7b912e"
+    "StackId": "arn:aws:cloudformation:ap-northeast-2:123412341234:stack/ec2-stack/4ef13bc0-0cf3-11ea-a326-06435d7b912e"
 }
 ```
 
@@ -81,5 +83,55 @@ $ aws cloudformation --profile my delete-stack --stack-name ec2-stack
 
 스택을 업데이트 한다. 이 명령은 생성 완료된 스택에 한해서 사용가능하다.
 
+```console
+$ aws cloudformation --profile my update-stack --stack-name ec2-stack --template-body file://./cf-ec2.yml --parameters ParameterKey=myStamp,ParameterValue=cli ParameterKey=MyVPCStackName,ParameterValue=my-vpc
+{
+    "StackId": "arn:aws:cloudformation:ap-northeast-2:123412341234:stack/ec2-stack/af3747b0-0d28-11ea-847d-06a94ca450e8"
+}
+
+```
+
 # `ListExports`
+
+클라우드포메이션 스택에서 내보낸 아웃풋의 목록을 조회한다.
+
+```console
+$ aws cloudformation list-exports --profile my
+{
+    "Exports": [
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-northeast-2:123412341234:stack/my-vpc/56816900-0d39-11ea-b673-06bb99c97080",
+            "Name": "my-vpc-VPCID",
+            "Value": "vpc-0f779304d15754ba2"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-northeast-2:123412341234:stack/my-vpc/56816900-0d39-11ea-b673-06bb99c97080",
+            "Name": "my-vpc-private-subnets",
+            "Value": "subnet-05e697a6c28d19495,subnet-0545190b2506cc512,subnet-0e5574c9d204ed044"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-northeast-2:123412341234:stack/my-vpc/56816900-0d39-11ea-b673-06bb99c97080",
+            "Name": "my-vpc-public-subnet0",
+            "Value": "subnet-0ee2a6bf9e5292739"
+        },
+        {
+            "ExportingStackId": "arn:aws:cloudformation:ap-northeast-2:123412341234:stack/my-vpc/56816900-0d39-11ea-b673-06bb99c97080",
+            "Name": "my-vpc-public-subnets",
+            "Value": "subnet-0ee2a6bf9e5292739,subnet-02f117d7fe953f813,subnet-0744a4f85632c747b"
+        }
+    ]
+}
+```
+
 # `ListImports`
+
+스택 아웃풋 값을 사용중인 스택을 반환한다. 
+
+```console
+$ aws cloudformation list-imports --export-name my-vpc-public-subnet0 --profile my
+{
+    "Imports": [
+        "ec2-stack"
+    ]
+}
+```
