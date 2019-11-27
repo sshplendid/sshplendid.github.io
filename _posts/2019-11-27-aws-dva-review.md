@@ -10,7 +10,7 @@ tags: [aws, dva, 자격증, 회고, cloud]
 
 ## TL;DR
 
-![aws certified logo]({{site.baseurl}}/static/images/posts/2019-11-27-aws-dva-review/aws-certified-logo_color-horz_180x30.jpg)
+[![aws certified logo]({{site.baseurl}}/static/images/posts/2019-11-27-aws-dva-review/aws-certified-logo_color-horz_180x30.jpg)](https://www.certmetrics.com/amazon/public/badge.aspx?i=2&t=c&d=2019-11-27&ci=AWS00871562&dm=80)
 
 오늘(11/27) AWS 공인 개발자(DVA) 자격증을 취득했다. 11월 2일에 학습 자료를 결제했으니 26일 걸린 셈이다. AWS를 올해 2월부터 사내에서 사용하기 시작했고, AWS에서 진행하는 Developing on AWS 과정을 수강한 경험이 있다. 하지만 서비스 개발자인 내가 사용하는 서비스는 RDS, ElastiCache, ElasticSearch 등의 매니지드 서비스 정도이고, 이마저도 관리자는 따로 있으니 AWS 콘솔을 켤 일이 거의 없는 상황이었다.
 
@@ -43,7 +43,7 @@ Reimaginer님이 연습문제로 시험을 준비했다는걸 알고 Udemy에서
 
 하지만...
 
-![aws certified logo]({{site.baseurl}}/static/images/posts/2019-11-27-aws-dva-review/developer-associate-tag_360x32.jpg)
+[![aws certified logo]({{site.baseurl}}/static/images/posts/2019-11-27-aws-dva-review/developer-associate-tag_360x32.jpg)](https://www.certmetrics.com/amazon/public/badge.aspx?i=2&t=c&d=2019-11-27&ci=AWS00871562&dm=80)
 
 합격했다.
 
