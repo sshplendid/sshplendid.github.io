@@ -3,7 +3,7 @@ layout: post
 title: 'S3 파일 이벤트 트리거'
 date: 2019-12-08 12:00:00 +0900
 categories: [blog, cloud, aws]
-# img: 'https://live.staticflickr.com/7881/46600198075_800187a13b_b.jpg'
+img: 'https://live.staticflickr.com/7378/12176435415_61c14775c5_b.jpg'
 tags: [aws, s3, sqs, event]
 ---
 
