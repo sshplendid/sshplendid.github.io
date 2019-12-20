@@ -7,9 +7,9 @@ layout: main
     <div class="page-cover-image">
       <figure>
       {% if page.img contains 'https://' or page.img contains 'http://' %} 
-        <img class="page-image" src={{ page.img }} alt="{{page.title}}">
+        <img class="page-image" src={{ page.img }} alt="{{page.title}}" />
       {% else %}
-        <img class="page-image" src={{ "/static/images/posts/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}">
+        <img class="page-image" src={{ "/static/images/posts/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}" />
       {% endif %}
       {% if page.fig-caption %}
          <figcaption>{{page.fig-caption}}</figcaption>
@@ -25,6 +25,9 @@ layout: main
       </header>
       {{content | markdownify}}
       <div class="page-footer">
+        <div class="image-description">
+          <a href="{{page.img-link}}">{{page.img-description}}</a>
+        </div>
         <div class="page-share">
           <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
           <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
