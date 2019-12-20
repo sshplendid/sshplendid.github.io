@@ -115,7 +115,7 @@ public class SynchronizedCounter {
 
 > 생성자는 동기화 메서드를 사용할 수 없다. 이는 구문 오류이다. 생성자를 동기화 하는 것은 말이 되지 않는다. 오직 한 쓰레드가 객체를 생성할 수 있다.
 
-> 쓰레드 간에 공유해야 하는 객체를 생성할 때 객체 참조가 새는 것을 조심해야 한다. 모든 클래스 인스턴스를 가지고 있는 **instaces**라는 이름의 List 객체를 가지고 있다고 가정하자. 생성자 부분에 다음과 같은 코드를 추가할 수 도 있다.  
+> 쓰레드 간에 공유해야 하는 객체를 생성할 때 객체 참조가 새는 것을 조심해야 한다. 모든 클래스 인스턴스를 가지고 있는 **instances**라는 이름의 List 객체를 가지고 있다고 가정하자. 생성자 부분에 다음과 같은 코드를 추가할 수 도 있다.  
 > ```java
 > instances.add(this);
 > ```  
@@ -125,8 +125,30 @@ public class SynchronizedCounter {
 
 ## Intrinsic Locks and Synchronization
 
-동기화는 *Instrinsic lock* 또는 *Monitoring lock*(API 스펙엔 단순하게 "monitor"라고 표시되있음)으로 알려진 내부 엔티티에 의해 구성된다. Intrinsic lock은 동기화의 두 관점, 객체 상태의 독접적인 접근 강요 및 happens-before 관계 설정에서 역할을 수행한다. 
+동기화는 *Instrinsic lock* 또는 *Monitoring lock*(API 스펙엔 단순하게 "monitor"라고 표시되있음)으로 알려진 내부 엔티티에 의해 구성된다. Intrinsic lock은 동기화의 두 관점, 객체 상태의 독접적인 접근 강요 및 happens-before 관계 설정에서 역할을 수행한다.
 
 모든 객체는 instrinsic lock을 가지고 있다. 컨벤션에 의해, 객체 필드에 대한 독점적이고 일관성 있는 접근을 원하는 쓰레드는 객체에 접근하기 전에 객체의 instrinsic lock을 획득해야 한다. 그리고 객체와 관련된 작업이 끝난 후엔 lock을 반환해야 한다. 쓰레드는 lock을 획득하고 반환하는 사이에 intrinsic lock을 가지고 있다고 알려야 한다. 쓰레드가 소유하는 만큼 다른 쓰레드는 lock을 획득할 수 없다. lock을 획득할 때까지 block 상태를 유지한다.
 
-쓰레드가 intrinsic lock을 반환할 때 happens-before 관계가 성립된다.
+쓰레드가 intrinsic lock을 반환할 때 액션과 그 다음 lock을 획득하는 행동 사이에  happens-before 관계가 성립된다.
+
+### 동기화 메서드의 락
+
+쓰레드가 동기화 메서드를 적용할 때 자동적으로 메서드의 객체에 대한 intrinsic 락을 획득하고 메서드가 리턴되면 락을 반환한다. 락의 반환은 심지어 익셉션에 의해 리턴되는 경우에도 발생한다.
+
+`static synchronized` 메서드를 적용하면 어떤 일이 일어날까? `static` 메서드는 객체가 아닌 클래스과 관련되어 있다. 이 경우에 쓰레드는 연관 클래스에 대한 `Class` 객체에 대한 intrinsic lock을 획득한다. 이와같이 클래스의 static 메서드에 대한 접근은 클래스 인스턴스의 락과는 구별되는 락에 의해 제어된다
+
+### 동기화 명령문
+
+동기화 코드를 생성하는 또다른 방법은 `synchronized` 구문을 사용하는 것이다. 동기화 메서드와 달리 동기화 구문은 lock을 적용하려는 객체를 지정해야 한다.
+
+```java
+public void addName(String name) {
+    synchronized(this) {
+        lastName = name;
+        nameCount++;
+    }
+    nameList.add(name);
+}
+```
+
+이 예에서 `addName` 메서드는 `lastName`과 `namecount`의 상태를 변경하기 위해 동기화 해야하지만, 객체의 다른 메서드의 적용으로 인한 동기화도 피해야한다. 

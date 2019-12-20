@@ -1,15 +1,16 @@
 ---
 layout: post
-title: 'On-premise 네트워크에서 AWS 도메인으로 방화벽을 오픈할 수 없을 때'
+title: 'S3 버킷의 IP 주소는 뭔가요? On-premise 서버는 IP로 방화벽을 열어야해요.'
 date: 2019-12-20 14:22:00 +0900
 categories: [blog, cloud, aws]
 img: 'https://images.unsplash.com/photo-1548200482-b77f76c9dbef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1969&q=80'
 tags: [aws, on-premise, ip, 방화벽, cidr]
 ---
 
-사내 On-premise 네트워크에서 AWS 네트워크로 아웃바운드 방화벽을 오픈해야 하는 경우가 있다. 
-AWS의 많은 매니지드 서비스(S3, DynamoDB, ...)는 도메인을 가지고 있고 ip는 감춰져있다.
-클라이언트 서버의 컨디션에 따라 IP대역으로 방화벽을 오픈해야 하는데, AWS는 [공식 문서를 통해 리전/서비스 별 IP 대역](https://ip-ranges.amazonaws.com/ip-ranges.json)을 공개하고 있다.
+사내 Private 네트워크의 On-premise 서버로부터 AWS 네트워크로 아웃바운드 방화벽을 오픈해야 하는 경우가 있다.
+이 때 네트워크의 컨디션에 따라 IP로만 방화벽을 오픈해야하는 경우가 있다.
+AWS의 많은 매니지드 서비스(S3, DynamoDB, ...)는 도메인을 통해 접근하고, IP를 알아내더라도 언제나 동일한 IP를 보장한다고 확신할 수 없다.
+이 때문에 클라이언트의 컨디션에 따라 IP 대역으로 방화벽을 오픈해야 하는데, AWS는 [공식 문서를 통해 리전/서비스 별 IP 대역](https://ip-ranges.amazonaws.com/ip-ranges.json)을 공개하고 있다.
 해당 문서는 지속적으로 업데이트가 되고 있고, 문서의 업데이트 알림을 AWS SNS를 통해 구독할 수도 있다.
 
 ## 제공하는 정보
@@ -17,7 +18,7 @@ AWS의 많은 매니지드 서비스(S3, DynamoDB, ...)는 도메인을 가지�
 해당 문서는 리전과 서비스 별로 IP 대역대를 [CIDR 표기법](https://ko.wikipedia.org/wiki/%EC%82%AC%EC%9D%B4%EB%8D%94_(%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9))로 제공한다.
 제공하는 서비스는 AWS의 매니지드 서비스들로 아래와 같다. 만약 개별 서비스가 아니라 모든 AWS 대역을 열고 싶으면 `AMAZON`을 지정하면 된다.
 
-> 유효 서비스 명: AMAZON | AMAZON_CONNECT | API_GATEWAY | CLOUD9 | CLOUDFRONT | CODEBUILD | DYNAMODB | EC2 | EC2_INSTANCE_CONNECT | GLOBALACCELERATOR | ROUTE53 | ROUTE53_HEALTHCHECKS | S3
+> 유효 서비스 명: AMAZON, AMAZON_CONNECT, API_GATEWAY, CLOUD9, CLOUDFRONT, CODEBUILD, DYNAMODB, EC2, EC2_INSTANCE_CONNECT, GLOBALACCELERATOR, ROUTE53, ROUTE53_HEALTHCHECKS, S3
 
 ## IP 확인 테스트
 
