@@ -3,7 +3,9 @@ layout: post
 title:  "AWS 클라우드포메이션을 이용한 웹서버 시작하기"
 date:   2019-11-19 00:55:00 +0900
 categories: [blog, cloud, aws]
-img: "https://p2.piqsels.com/preview/320/918/427/sky-clouds-sunlight-dark.jpg"
+img: "https://cdn.pixabay.com/photo/2018/03/18/19/38/sky-3238050_1280.jpg"
+img-link: https://pixabay.com/ko/photos/%ED%95%98%EB%8A%98-%EA%B5%AC%EB%A6%84-%EC%A0%81%EC%9A%B4-%ED%91%B8%EB%A5%B8-3238050/
+img-description: Image by SarahRichterArt@pixabay
 tags: [aws, ec2, devops, cloudformation]
 ---
 
