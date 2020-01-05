@@ -26,7 +26,7 @@ tags: [electron, nodejs, electron-builder, wifi, application]
 단순한 기능, 쉘 스크립트로도 구현 가능한 기능들로 이루어져 있다. 크게 ping 명령, 맥os 네트워크를 제어하는 명령인데 아래와 같다.
 
 * `ping -c 1 -t 1 8.8.8.8`: 1초의 타임아웃을 가지고 구글 DNS로 ping 1회 호출한다.
-* `networksetup getairportnetwork en0`: Wi-Fi 기능 활성화 여부 확인
+* `networksetup -getairportnetwork en0`: Wi-Fi 기능 활성화 여부 확인
 * `networksetup -setairportpower en0 on`: Wi-Fi 기능 활성화
 * `networksetup -setairportpower en0 off`: Wi-Fi 기능 비활성화
 
@@ -36,7 +36,7 @@ tags: [electron, nodejs, electron-builder, wifi, application]
 
 구현하려는 기능이 단순하기 때문에 [Electron 공식 문서](https://electronjs.org/docs)를 보며 코딩을 했다. 터미널 명령에 대한 라이브러리를 `node-cmd`를 사용했다 기본 라이브러리인 `child-process`로 변경했다. 변경의 이유는 node-cmd는 async/await을 사용하기 어려워서 callback hell을 만들었기 때문이다. 그리고 첫 버전의 소스는 데스크탑 앱으로 배포하면서 앱이 crash 되는 상황이 있었다. `npm start` 명령어로 실행했을 땐 잘 작동했는데 패키징해서 배포한 앱은 계속 hang 상태가 됐다. 그래서 소스코드를 처음부터 다시 수정해서 패키징했다. 원인을 파악할 수 있는 로그같은걸 볼 수 있으면 좋겠다고 생각했다. 나중에 확인해봐야겠다. 그리고 트레이에는 이모티콘으로 Ping 결과를 표현했다. Ping 결과가 정상이면 😍, 비정상이면 🤬로 표현한다. 언제 네트워크가 비정상인지 알고싶었다.
 
-<video controls >
+<video controls style="width: 100%; max-width: fit-content;">
     <source src="{{site.baseurl}}/static/images/posts/2020-01-05-wifi-chaos/wifi-chaos.mp4"
             type="video/mp4">
     Sorry, your browser doesn't support embedded videos.
