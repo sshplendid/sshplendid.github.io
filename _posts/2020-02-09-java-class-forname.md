@@ -27,11 +27,6 @@ rs = stmt.executeQuery(sql);
 
 Class.forName 메서드는 런타임 시점에 해당 경로의 클래스를 동적으로 로드한다. 그런데 객체를 생성하지도 않고 단지 클래스를 로드하기만 했는데 어떻게 DriverManager는 MySQL 드라이버가 있는지 알고 진행하는 것일까? 이를 알려면 `com.mysql.cj.jdbc.Driver` 클래스를 봐야한다.
 
-> 서비스 로더란? (from Java Doc)
->
-> 서비스는 여러 서비스 프로바이더(e.g. JDBC)가 존재하는 인터페이스 혹은 클래스를 말한다.  
-> 서비스 로더는 서비스의 구현체를 로드하는 도구이다.
-
 ```java
 public class Driver extends NonRegisteringDriver implements java.sql.Driver {
     //
@@ -64,6 +59,11 @@ public class Driver extends NonRegisteringDriver implements java.sql.Driver {
 ## 추가내용: JDK 6 이후엔 Class.forName() 구문을 적지 않아도 된다.
 
 Class.forName에 대해 써치하다가 [Slipp](https://www.slipp.net/questions/276)에서 추가 내용을 알게됐다. JDK 6 이후 서비스로더를 통해 `java.sql.Driver` 인터페이스의 벤더별 구현 클래스를 모두 로드한다. 그래서 Class.forName으로 로드할 필요가 없다. 아래 코드는 jdk 8의 DriverManager 클래스 코드의 일부인데, 주석이 있는 부분에서 모든 구현체를 로드한다.
+
+> 서비스 로더란? (from Java Doc)
+>
+> 서비스는 여러 서비스 프로바이더(e.g. JDBC)가 존재하는 인터페이스 혹은 클래스를 말한다.  
+> 서비스 로더는 서비스의 구현체를 로드하는 도구이다.
 
 ```java
 public class DriverManager {
