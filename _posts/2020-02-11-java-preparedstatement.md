@@ -2,7 +2,7 @@
 layout: post
 title: 'PreparedStatement와 MyBatis의 파라미터'
 description: 'PreparedStatement가 SQL Injection을 방어한다는 걸 확인해보고 싶어서 알아보았다.'
-date: 2020-02-11 19:54:00 +0900
+date: 2020-02-11 15:54:00 +0900
 categories: [blog, dev, java]
 img: ''
 img-link: ''
