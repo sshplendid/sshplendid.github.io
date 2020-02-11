@@ -48,3 +48,9 @@ select
 from user
 where name = '; select 1 --'
 ```
+
+## 참고내용
+
+* [Statement 와 PreparedStatement의 차이 - 허니몬(Honeymon)의 자바guru](https://java.ihoney.pe.kr/76)
+* [쿼리 실행과정](https://m.blog.naver.com/PostView.nhn?blogId=blogpyh&logNo=220675109307&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
+* [Oracle의 CBO와 바인드 변수](https://db.necoaki.net/201)
