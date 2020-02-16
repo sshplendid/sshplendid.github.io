@@ -6,7 +6,7 @@ categories: [blog, dev, java]
 img: ''
 img-link: ''
 img-description: ''
-tags: [java, jvm, gc, GarbageCollection]
+tags: [java, jvm]
 ---
 
 ## JVM?
@@ -19,6 +19,22 @@ Java 언어로 작성한 프로그램은 JVM(Java Virtual Machine)이라는 가�
 >  
 > JDK(Java Development Kit)는 Java 애플리케이션을 개발하기 위한 환경을 의미한다. Java 애플리케이션을 실행해야 하니 JRE는 기본적으로 포함되어 있고, 그 외에 Java 코드를 컴파일하기 위한 컴파일러, 클래스 라이브러리, 샘플소스 등을 포함한다.
 
+JVM은 Class Loader, Runtime Data Areas, Execution Engine으로 구성된다.
+
+
+### Class Loader
+
+클래스 로더는 런타임 시점에 클래스를 로드한다. 클래스를 로드한다? 클래스 인스턴스를 생성, 메모리에 로드한다는 의미이다. 애플리케이션에서 클래스의 참조가 발생하는 시점에 필요한 클래스만 로드한다는 것이다. 이는 자바 런타임 라이브러리(rt.jar)도 해당된다.
+
+클래스 로딩 과정
+
+1. Bootstrap 클래스 생성
+2. Object 클래스 로딩
+
+### Runtime Data Areas
+
+### Execution Engine
+
 ### JIT 컴파일러?
 
 Java의 컴파일 과정은 두 부분으로 나눠진다. 첫 번째는 Java 코드(.java)를 JVM이 인식하는 바이트코드(.class)로 변환하는 과정이다. 이는 JDK에 포함된 `javac` 명령으로 이뤄진다. 메이븐이나 그래들같은 빌드 툴 역시 javac 명령을 통해 빌드한다.
@@ -27,6 +43,7 @@ Java의 컴파일 과정은 두 부분으로 나눠진다. 첫 번째는 Java �
 JIT(Just In Time) 컴파일러는 바이트코드를 기계어로 변환하는 컴파일러다. JIT 컴파일러는 JVM 내부에 존재한다.
 
 #### 왜 JIT 컴파일러를 사용하나?
+
 
 
 ### Java 8
@@ -42,3 +59,4 @@ JIT(Just In Time) 컴파일러는 바이트코드를 기계어로 변환하는 �
 * [Garbage Collection 모니터링 방법 - D2](https://d2.naver.com/helloworld/6043)
 * [Garbage Collection 튜닝 - D2](https://d2.naver.com/helloworld/37111)
 * [JVM 메모리 구조와 GC - 기계인간 John Grib](https://johngrib.github.io/wiki/jvm-memory/)
+* [Java 클래스로더 훑어보기](https://homoefficio.github.io/2018/10/13/Java-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A1%9C%EB%8D%94-%ED%9B%91%EC%96%B4%EB%B3%B4%EA%B8%B0/)

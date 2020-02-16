@@ -5,7 +5,7 @@ date: 2020-02-16 10:35:38 +0900
 categories: [blog, dev, designpattern]
 img: 'https://images.unsplash.com/photo-1572721546624-05bf65ad7679?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2766&q=80'
 img-link: 'https://unsplash.com/photos/yh0UtueiZ-I'
-img-description: 'unsplash @@lucian_alexe'
+img-description: 'unsplash @lucian_alexe'
 tags: [Adapter, DesignPattern, java, InputStreamReader]
 ---
 
