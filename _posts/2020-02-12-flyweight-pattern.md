@@ -3,10 +3,10 @@ layout: post
 title: 'Java에서의 Flyweight 패턴'
 description: '플라이웨이트 패턴에 대해서 알아보고 Java API에서의 사용 예를 살펴본다.'
 date: 2020-02-12 21:37:25 +0900
-categories: [blog, dev, java]
-img: ''
-img-link: ''
-img-description: ''
+categories: [blog, dev, designpattern]
+img: 'https://cdn.vox-cdn.com/thumbor/SJU3KGoOU4Ei6ST5V_bMQS4jRAg=/0x0:3000x2000/1200x800/filters:focal(0x0:3000x2000)/cdn.vox-cdn.com/uploads/chorus_image/image/44233068/usa-today-7221794.0.jpg'
+img-link: 'https://www.badlefthook.com/2014/12/20/7292015/the-eight-great-super-flyweights-of-all-time-honourable-mentions'
+img-description: 'Photo by Ed Mulholland-USA TODAY Sports'
 tags: [DesignPattern, flyweight, java]
 ---
 
@@ -17,7 +17,7 @@ tags: [DesignPattern, flyweight, java]
 > 플라이웨이트 패턴(Flyweight pattern)는 동일하거나 유사한 객체들 사이에 가능한 많은 데이터를 서로 공유하여 사용하도록 하여 메모리 사용량을 최소화하는 소프트웨어 디자인 패턴이다. 종종 오브젝트의 일부 상태 정보는 공유될 수 있는데, 플라이웨이트 패턴에서는 이와 같은 상태 정보를 외부 자료 구조에 저장하여 플라이웨이트 오브젝트가 잠깐 동안 사용할 수 있도록 전달한다.
 > - 위키백과
 
-자원의 생성 비용이 높거나 재사용을 해야하는 경우에 사용한다. 이런 경우는 Java API에서도 자주 찾아볼 수 있다. 
+자원의 생성 비용이 높거나 재사용을 해야하는 경우에 사용한다. 이런 경우는 Java API에서도 자주 찾아볼 수 있다.
 
 ## Java API에서의 사용 예
 
