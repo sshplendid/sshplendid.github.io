@@ -4,9 +4,9 @@ title: 'PreparedStatement와 MyBatis의 파라미터'
 description: 'PreparedStatement가 SQL Injection을 방어한다는 걸 확인해보고 싶어서 알아보았다.'
 date: 2020-02-11 15:54:00 +0900
 categories: [blog, dev, java]
-img: ''
-img-link: ''
-img-description: ''
+img: 'https://images.unsplash.com/photo-1562813733-b31f71025d54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80'
+img-link: 'https://unsplash.com/photos/dYEuFB8KQJk'
+img-description: 'unsplash@cbpsc1'
 tags: [java, sql, PreparedStatement, mybatis]
 ---
 

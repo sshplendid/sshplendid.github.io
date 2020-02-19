@@ -4,9 +4,9 @@ title: 'Java에서의 Flyweight 패턴'
 description: '플라이웨이트 패턴에 대해서 알아보고 Java API에서의 사용 예를 살펴본다.'
 date: 2020-02-12 21:37:25 +0900
 categories: [blog, dev, designpattern]
-img: 'https://cdn.vox-cdn.com/thumbor/SJU3KGoOU4Ei6ST5V_bMQS4jRAg=/0x0:3000x2000/1200x800/filters:focal(0x0:3000x2000)/cdn.vox-cdn.com/uploads/chorus_image/image/44233068/usa-today-7221794.0.jpg'
-img-link: 'https://www.badlefthook.com/2014/12/20/7292015/the-eight-great-super-flyweights-of-all-time-honourable-mentions'
-img-description: 'Photo by Ed Mulholland-USA TODAY Sports'
+img: 'https://images.unsplash.com/photo-1495555687398-3f50d6e79e1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
+img-link: 'https://unsplash.com/photos/qbf59TU077Q'
+img-description: 'unsplash@hermez777'
 tags: [DesignPattern, flyweight, java]
 ---
 
