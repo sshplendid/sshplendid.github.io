@@ -3,10 +3,10 @@ layout: post
 title: 'Apache Commons Net 라이브러리에 오류가 있나요?'
 date: 2020-02-18 00:09:04 +0900
 categories: [blog, dev, log]
-img: ''
-img-link: ''
-img-description: ''
-tags: [apache, commons, cidr, subnet]
+img: 'https://images.unsplash.com/photo-1542382257-80dedb725088?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80'
+img-link: 'https://unsplash.com/photos/OKOOGO578eo'
+img-description: 'unsplash@dulgier'
+tags: [apache, commons, net, cidr, subnet]
 ---
 
 ## IP가 CIDR Block 범위에 포함되는지 확인이 필요했다.
