@@ -62,7 +62,7 @@ IP와 서브넷 마스크를 AND 연산으로 표현하면 다음과 같다.
 
 이 테스트는 보기좋게 실패한다. 왜일까? 테스트를 하기 위한 IP를 CIDR Block의 첫 번째 IP와 해당 IP, 마지막 IP이다. 
 
-## 내가 잘못 생각한게 아닐까?
+## 의도와 다른 결과가 나온다. 내가 잘못 생각한게 아닐까?
 
 Apache Commons Net 라이브러리의 SubnetInfo 클래스를 살펴봤다. `SubnetInfo.isInRange`는 IP를 int 타입의 정수로 변환하고, 최대값과 최소값을 구해 IP의 정수 변환값이 범위에 있는지 확인한다. 그런데 최대값과 최소값을 구하는 private 메서드에서 각가 1을 빼고 1을 더하는 부분이 있다. 그 결과 CIDR Block의 범위는 내가 의도한 범위와 달라진다. 아래 표처럼 10.213.0.1 ~ 10.213.255.254 가 범위르 결정되어 엣지 케이스는 false를 리턴하게 된다.
 
@@ -95,7 +95,44 @@ Apache Commons Net 라이브러리의 SubnetInfo 클래스를 살펴봤다. `Sub
     }
 ```
 
-[Is X.Y.Z.0 a valid IP address?](https://serverfault.com/questions/10985/is-x-y-z-0-a-valid-ip-address)
+이건 버그일까?
 
+## 아파치 이슈 트래커에서 관련 이슈를 찾아보자.
 
-## 다른 라이브러리는 어떨까?
+왜 첫 번째 IP와 마지막 IP를 제외하는 로직이 있을까? 궁금해서 검색을 하다 아파치 이슈 트래커까지 들어가게 됐다. 이슈 트래커에서 `SubnetInfo` 클래스로 검색하다 이런 이슈를 발견했다. [NET-651](https://issues.apache.org/jira/browse/NET-651)의 댓글을 보면 [Apache Commons Net - Java Doc](https://commons.apache.org/proper/commons-net/javadocs/api-3.6/index.html)을 보면 API 설명에 이런 문구가 있다고 한다.
+
+> public boolean isInRange(String address)
+> Returns true if the parameter address is in the range of usable endpoint addresses for this subnet. This excludes the network and broadcast adresses.
+
+그랬다. `isInRange` 메서드는 명시적으로 네트워크 주소와 브로드캐스트 주소를 제외한다. 여태까지 이 문구를 지나쳤을까... 그런데 네트워크 주소와 브로드 캐스트 주소는 뭘까? 이 둘을 알려면 먼저 서브넷과 서브넷 마스크에 대해 알아야 한다.
+
+## 다시 CIDR, 서브넷
+서브넷은 말 그대로 네트워크의 부분망, 하나의 네트워크를 다시 쪼갠 것이다. 왜 쪼갤까? IP의 주소의 제한 때문이다. IP는 32비트로 표현하기 때문에 2의 32승, 즉 2,147,483,647개로 고정되어 있다. 하지만 초기 네트워크의 할당은 [네트워크 클래스](https://ko.wikipedia.org/wiki/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC_%ED%81%B4%EB%9E%98%EC%8A%A4) 방식이었고 구조적인 문제로 [CIDR](https://ko.wikipedia.org/wiki/%EC%82%AC%EC%9D%B4%EB%8D%94_(%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9))로 대체되었다. CIDR와 함께 서브넷 마스크라는 개념이 있는데 (CIDR 이전에 개발되었다고 함, [위키피디아](https://ko.wikipedia.org/wiki/%EC%82%AC%EC%9D%B4%EB%8D%94_(%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9)#%EC%82%AC%EC%9D%B4%EB%8D%94%EC%99%80_%EB%A7%88%EC%8A%A4%ED%81%AC)), 이 두 개념덕에 보다 효율적으로 네트워크를 사용할 수 있게 됐고 현재도 사용되고 있는 기술이다.
+
+서브넷은 가변적이기 때문에 시작과 끝 주소를 경우에 따라 계산해야 하는데, 방식은 이렇다. 먼저 CIDR 블록의 비트 수만큼 앞에서부터 1을 채우고 나머지를 0으로 채운 32비트 이진수를 만든다. `10.213.160.0/16` 블록의 경우 아래와 같은 값이 나온다.
+
+* 00001010.11010101.00000000.00000000
+
+그리고 브로드캐스트 주소를 위한 이진수도 구해야 하는데, CIDR 블록의 비트수를 32에서 뺀 값만큼 뒤에서부터 1을 채운다.
+
+* 00001010.11010101.11111111.11111111
+
+그리고 CIDR 블록의 IP 표현을 각각 AND 연산을 하면 아래와 같은 값을 얻게된다.
+
+* 네트워크 주소(Network Address): 10.213.0.0
+* 브로드캐스트 주소(Broadcast Address): 10.213.255.255
+
+이렇게 네트워크 주소와 브로드 캐스트 주소를 얻을 수 있다. 그런데 이 주소가 범위 표현 외에도 다른 의미를 가지고 있다.
+
+* 네트워크 주소(Network Address): 네트워크(서브넷)의 첫 번째 주소, **일반적으로 하나의 네트워크를 통칭**하기 위해서 사용한다.
+* 브로드캐스트 주소(Broadcast Address): 네트워크(서브넷)의 마지막 주소, 하나의 **네트워크 전체에 데이터를 보내기 위한 주소**이며 DHCP, ARP 등의 프로토콜을 사용한다.
+
+## 번외, CIDR Block이 *.*.*.*/31인 경우가 존재할 수 있을까?
+
+AWS VPC Subnet을 생성할 때 서브넷 범위를 결정할 수 있는데 넷 마스크 /16 ~ /28의 범위로 제한되어 있다. 하지만 사무실같은 네트워크에서 직접 망을 구성 할 때 /31 마스크(2개의 IP를 가짐)를 사용할 수 있을까? 해보진 않았지만 이미 네트워크 주소와 브로드캐스트 주소, 두 주소를 점유하기 때문에 /31 마스크는 사용할 수 없을 것이다.
+
+* [Apache Commons Net - Java Doc](https://commons.apache.org/proper/commons-net/javadocs/api-3.6/index.html)
+* [Apache Commons Net: NET-651](https://issues.apache.org/jira/browse/NET-651)
+* [Is X.Y.Z.0 a valid IP address?](https://serverfault.com/questions/10985/is-x-y-z-0-a-valid-ip-address)
+* [네트워크 주소와 브로드캐스트 주소](https://zitto15.tistory.com/21)
+* [CIDR to IP Range](https://www.ipaddressguide.com/cidr)
