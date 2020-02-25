@@ -70,7 +70,7 @@ public class LightningToMicroUSBAdapter implements MicroUSBChargable {
 }
 ```
 
-### Java API 에서의 패턴
+## Java API 에서의 패턴 1: `InputStreamReader`
 
 Java API에서도 어댑터 패턴을 찾아볼 수 있다. [Stack Over Flow](https://stackoverflow.com/questions/1673841/examples-of-gof-design-patterns-in-javas-core-libraries)에서 Java API 사용 예를 찾았는데 InputStream과 Reader의 관계에서 어댑터 패턴을 볼 수 있다.
 
@@ -118,6 +118,73 @@ BufferedReader 클래스는 인자로 Reader 인터페이스의 구현체를 필
 
 ![Reader, Stream, StreamDecoder UML]({{site.baseurl}}/static/images/posts/2020-02-16-adapter-pattern/StreamDecoder.png)
 
+## Java API에서의 어댑터 패턴 2: `slf4j-jdk14`
+
+SLF4J는 `org.slf4j.Logger`를 로깅 인터페이스로 사용한다. log4j, Logback 등은 이 로거 인터페이스의 구현체이다. SLF4j는 Java 기본 로깅 API인 `java.util.logging.Logger` 라이브러리를 지원하기 위해서 `slf4j-jdk-14` 라이브러리를 제공한다. 이 라이브러리는 기본 로거인 `java.util.logging.Logger`를 래핑한 `JDK14LoggerAdapter`라는 클래스를 제공한다. 이 클래스는 `org.slf4j.Logger`의 구현체이다.(LocationAwareLogger가 Logger를 상속받음)
+
+```java
+package org.slf4j.jul;
+
+...
+import java.util.logging.Logger;
+...
+
+public final class JDK14LoggerAdapter extends MarkerIgnoringBase implements LocationAwareLogger {
+    private static final long serialVersionUID = -8053026990503422791L;
+    final transient Logger logger; // Java 기본 로거 컴포지션
+    static String SELF = JDK14LoggerAdapter.class.getName();
+    static String SUPER = MarkerIgnoringBase.class.getName();
+
+    JDK14LoggerAdapter(Logger logger) {
+        this.logger = logger;
+        this.name = logger.getName();
+    }
+    ...
+    public boolean isInfoEnabled() {
+        return this.logger.isLoggable(Level.INFO);
+    }
+
+    public void info(String msg) {
+        if (this.logger.isLoggable(Level.INFO)) {
+            this.log(SELF, Level.INFO, msg, (Throwable)null);
+        }
+
+    }
+
+    public void info(String format, Object arg) {
+        if (this.logger.isLoggable(Level.INFO)) {
+            FormattingTuple ft = MessageFormatter.format(format, arg);
+            this.log(SELF, Level.INFO, ft.getMessage(), ft.getThrowable());
+        }
+
+    }
+
+    public void info(String format, Object arg1, Object arg2) {
+        if (this.logger.isLoggable(Level.INFO)) {
+            FormattingTuple ft = MessageFormatter.format(format, arg1, arg2);
+            this.log(SELF, Level.INFO, ft.getMessage(), ft.getThrowable());
+        }
+
+    }
+
+    public void info(String format, Object... argArray) {
+        if (this.logger.isLoggable(Level.INFO)) {
+            FormattingTuple ft = MessageFormatter.arrayFormat(format, argArray);
+            this.log(SELF, Level.INFO, ft.getMessage(), ft.getThrowable());
+        }
+
+    }
+
+    public void info(String msg, Throwable t) {
+        if (this.logger.isLoggable(Level.INFO)) {
+            this.log(SELF, Level.INFO, msg, t);
+        }
+
+    }
+    ...
+}
+```
+
 ## 특징
 
 * 장점
@@ -130,11 +197,11 @@ BufferedReader 클래스는 인자로 Reader 인터페이스의 구현체를 필
 
 [Refactoring guru에 따르면 어댑터 패턴과 연관된 다른 패턴](https://refactoring.guru/design-patterns/adapter)에 대해서 알 수 있다.
 
-* 브릿지 패턴은 초반에 설계되어서, 개발자가 애플리케이션의 일부분을 다른 부분들과 독립적으로 개발할 수 있게 한다. 반면에 어댑터 패턴은 보통 기존에 존재하는 애플리케이션과 호환되지 않는 클래스가 함께 잘 작동하게 도와준다.
-* 어댑터 패턴은 기존에 존재하는 객체의 인터페이스를 변경한다. 반면에 데코레이터 패턴은 인터페이스의 변경없이 객체를 향상시킨다. 추가로 데코레이터 패턴은 재귀적 구성(Composition)을 지원하지만, 어댑터를 사용할 땐 불가능하다.
-* 어댑터 패턴은 대상 객체를 감싼 다양한 인터페이스를 제공한다. 프록시 패턴은 객체와 동일한 인터페이스를 제공하고, 데코레이터 패턴은 기존 객체보다 향상된 객체를 제공한다.
-* 퍼사드 패턴은 기존 객체에 대한 새로운 인터페이스를 제공한다. 반면 어댑터 패턴은 기존에 존재하는 인터페이스를 사용 가능하도록 한다. 보통 어댑터는 단지 객체를 감싸기만 한다. 그러나 퍼사드는 객체의 내부 시스템과 긴밀하게 동작한다.
-* 브릿지, 스테이트, 스트레티지와 몇몇 어댑터는 유사한 구조를 가진다. 이 패턴들은 다른 객체들을 대신해서 동작하는 컴포지션에 기반한다. 그러나 모두 다른 종류의 문제를 해결한다. 패턴은 특정한 방식으로 코드를 구성하기 위한 레시피가 아니다. 또한 다른 개발자들과 문제 해결하기 위해 사용한 패턴에 대해 의견을 나눌 수 있다.
+* **브릿지 패턴**은 초반에 설계되어서, 개발자가 애플리케이션의 일부분을 다른 부분들과 독립적으로 개발할 수 있게 한다. 반면에 어댑터 패턴은 보통 기존에 존재하는 애플리케이션과 호환되지 않는 클래스가 함께 잘 작동하게 도와준다.
+* 어댑터 패턴은 기존에 존재하는 객체의 인터페이스를 변경한다. 반면에 **데코레이터 패턴**은 인터페이스의 변경없이 객체를 향상시킨다. 추가로 데코레이터 패턴은 재귀적 구성(Composition)을 지원하지만, 어댑터를 사용할 땐 불가능하다.
+* 어댑터 패턴은 대상 객체를 감싼 다양한 인터페이스를 제공한다. **프록시 패턴**은 객체와 동일한 인터페이스를 제공하고, 데코레이터 패턴은 기존 객체보다 향상된 객체를 제공한다.
+* **퍼사드 패턴**은 기존 객체에 대한 새로운 인터페이스를 제공한다. 반면 어댑터 패턴은 기존에 존재하는 인터페이스를 사용 가능하도록 한다. 보통 어댑터는 단지 객체를 감싸기만 한다. 그러나 퍼사드는 객체의 내부 시스템과 긴밀하게 동작한다.
+* **브릿지, 스테이트, 스트레티지**와 몇몇 어댑터는 유사한 구조를 가진다. 이 패턴들은 다른 객체들을 대신해서 동작하는 컴포지션에 기반한다. 그러나 모두 다른 종류의 문제를 해결한다. 패턴은 특정한 방식으로 코드를 구성하기 위한 레시피가 아니다. 또한 다른 개발자들과 문제 해결하기 위해 사용한 패턴에 대해 의견을 나눌 수 있다.
 
 ## 참고
 
