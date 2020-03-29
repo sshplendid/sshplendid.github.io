@@ -22,18 +22,21 @@ Java 언어로 작성한 프로그램은 JVM(Java Virtual Machine)이라는 가�
 JVM은 Class Loader, Runtime Data Areas, Execution Engine으로 구성된다.
 
 
-### Class Loader
+## Class Loader
 
 클래스 로더는 런타임 시점에 클래스를 로드한다. 클래스를 로드한다? 클래스 인스턴스를 생성, 메모리에 로드한다는 의미이다. 애플리케이션에서 클래스의 참조가 발생하는 시점에 필요한 클래스만 로드한다는 것이다. 이는 자바 런타임 라이브러리(rt.jar)도 해당된다.
 
-클래스 로딩 과정
+-클래스 로딩 과정
 
-1. Bootstrap 클래스 생성
-2. Object 클래스 로딩
+-1. Bootstrap 클래스 생성
+-2. Object 클래스 로딩
 
-### Runtime Data Areas
 
-### Execution Engine
+
+
+## Runtime Data Areas
+
+## Execution Engine
 
 ### JIT 컴파일러?
 
