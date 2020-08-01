@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이력서: 신세훈</title>
+  <style>
+    .resume {
+      max-width: 800px;
+    }
+    * {
+      margin-bottom: 10px;
+    }
+    h2, h3 {
+      text-transform: uppercase;
+    }
+    .resume {
+      margin: 10px 10px 10px 10px;
+    }
+    
+    dl {
+      padding: 0 10px 0 10px;
+    }
+    
+    dt {
+      font-weight: 600;
+    }
+    dd {
+      margin-left: 20px;
+    }
+    
+    dd::before {
+      content: "✓ ";
+    }
+    .subtitle {
+      font-size: large;
+      color: darkgreen;
+    }
+    .subtitle::before {
+      content: "# ";
+    }
+    
+    .link {
+      list-style-type: '🔗';
+    }
+    .role {
+      float: right;
+      list-style-type: '👨‍🔧';
+    }
+    .location {
+      float: right;
+      position: relative;
+      top: 35px;
+      left: 27px;
+      list-style-type: '📍'
+    }
+    .mail {
+      list-style-type: '✉️';
+    }
+    
+  </style>
+</head>
+<body>
+  <section class="container">
+    <article class="resume">
+      <h1 class="name">신세훈</h1>
+      <ul>
+        <li class="role">웹 개발자</li>
+        <li class="location">서울</li>
+        <li class="mail"><a href="mailto:s.shin@marathoner.kr">s.shin@marathoner.kr</a></li>
+        <li class="link"><a href="https://github.com/sshplendid">https://sshplendid.github.io</a></li>
+        <li class="link"><a href="https://sshplendid.github.io">https://github.com/sshplendid</a></li>
+      </ul>
+      <p class="description">끊임없이 도전하는 개발자입니다. 동료들과 함께 문제를 해결하는 것을 좋아하고, 함께 고민하면 더 좋은 결과가 나온다고 믿습니다. Java와 Spring Framework를 사용해 웹 서비스를 개발/운영하고 있습니다. 최근엔 클라우드 기술을 관심이 많고, 관련 자격증(DVA)도 취득했습니다. 새롭게 배운 지식을 블로그와 저장소에 기록하고 있습니다.
+      </p>
+      <h2 class="subtitle">Work Experiences</h2>
+      <dl class="job">
+        <div>
+          <dt class="company">네이버</dt>
+          <dd class="period">13 Apr 2020 - current</dd>
+          <dd class="task"><a href="https://shopping.naver.com">네이버 쇼핑</a> 플랫폼 개발</dd>
+        </div>
+        <div>
+          <dt class="company">롯데쇼핑(주) e커머스사업본부</dt>
+          <dd class="period">25 Feb 2019 - 12 Apr 2020</dd>
+          <dd class="task"><a href="https://www.lotteon.com">롯데ON</a> Back Office, OpenAPI 플랫폼 개발</dd>
+        </div>
+        
+        <div>
+          <dt class="company">삼성SDS</dt>
+          <dd class="period">11 Feb 2014 - 21 Feb 2019</dd>
+          <dd class="task">삼성전자 생산관리시스템 개발</dd>
+          <dd class="task">삼성전자 공사관리시스템 개발</dd>
+        </div>
+      </dl>
+      <h2 class="subtitle">Technical Skills</h2>
+      <dl class="skill">
+        <dt>Front-End</dt>
+        <dd>React, ES6+, TypeScript, jQuery</dd>
+        <dt>Back-End</dt>
+        <dd>Node.js, Java, Spring Boot</dd>
+        <dt>Data store</dt>
+        <dd>MongoDB, Oracle, MySQL, Redis, DynamoDB</dd>
+        <dt>ETC</dt>
+        <dd>RabbitMQ, ElasticSearch, Gradle, Docker, Git, bash</dd>
+      </dl>
+      <h2 class="subtitle">Projects</h2>
+      <dl class="project">
+        <dt class="title">롯데쇼핑 롯데ON 서비스 개발</dt>
+        <dd class="period">Feb 2019 - Current</dd>
+        <dd class="task">BackOffice 플랫폼, OpenAPI 플랫폼 개발</dd>
+        <dd class="tech">Java, AWS, Spring Boot, MySQL, Redis, Rabbit MQ, MyBatis</dd>
+        
+        <dt class="title">삼성전자 생산관리시스템(<abbr title="Manufacturing Execution System">MES</abbr>) 개발</dt>
+        <dd class="period">May 2018 - Feb 2019</dd>
+        <dd class="task">공정설계 REST API 및 I/F 배치 개발</dd>
+        <dd class="tech">Java, Shell Script, Spring Boot, Oracle</dd>
+        
+        <dt class="title">삼성전자 건설공사관리시스템(<abbr title="Management Information System">MIS</abbr>) 개발/운영</dt>
+        <dd class="period">Sep 2014 - May 2018</dd>
+        <dd class="task">공사관리시스템 비용처리/공통 모듈 개발/운영, 서버 모니터링 시스템 개발</dd>
+        <dd class="tech">Java, Spring, MyBatis, Oracle, jQuery</dd>
+        
+        <dt class="title">삼성전자 <abbr title="Bill of materials">BOM</abbr> Admin page 개발</dt>
+        <dd class="period">Jul 2013 - Aug 2013</dd>
+        <dd class="task">BOM Admin page 화면 개발</dd>
+        <dd class="tech">Java, JavaScript, JSP, Oracle, Tomcat</dd>
+      </dl>
+      
+      <h2 class="subtitle">Education</h2>
+      <dl>
+        <dt>한양대학교 산업경영공학과 학사 졸업</dt>
+        <dd class="period">Mar 2007 - Feb 2014</dd>
+        <dt>경안고등학교 졸업</dt>
+        <dd class="period">Mar 2004 - Feb 2007</dd>
+      </dl>
+      <h2 class="subtitle">Certifications</h2>
+      <dl>
+        <dt>AWS Certified Developer - Associate, AWS</dt>
+        <dd class="period">27 Nov 2019</dd>
+        <dt>SQL Developer(SQLD-0190936), 한국데이터베이스진흥원</dt>
+        <dd class="period">04 Jan 2016</dd>
+        <dt>정보처리기사(15202071137P), 산업인력공단</dt>
+        <dd class="period">31 Jul 2015</dd>
+      </dl>
+      <h2 class="subtitle">Millitary Service</h2>
+      <dl>
+        <dt>육군 만기 제대</dt>
+        <dd class="period">
+          23 Dec 2008 - 31 Oct 2010
+        </dd>
+      </dl>
+    </article>
+  </section>
+</body>
+</html>
