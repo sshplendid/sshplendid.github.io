@@ -154,4 +154,4 @@ spec:
 
 grafana로 메트릭 추이를 보면 Active runner 수에 따라 2배씩 확장을 하다 워크플로우나 끝나면 천천히 스케일 다운을 진행한다.
 
-![github actions grafana chart]({{site.baseurl}}/static/images/posts/2023-01-07-simple-github-actions-autoscaling/github-actions-grafana.jpg)
+![github actions grafana chart]({{site.baseurl}}/static/images/posts/2023-01-07-simple-github-actions-autoscaling/github-actions-grafana.png)
