@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '간단한 Github Actions runner auto scaling for enterprise'
+title: 'Simple auto scaling for Self-hosted Github Actions runner'
 date: 2023-01-07 03:34:00
 categories: [blog, devops]
 img: 'https://images.unsplash.com/photo-1643042945810-1119948eeabc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80'
